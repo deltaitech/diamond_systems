@@ -43,7 +43,7 @@ class SettingContactRequest extends FormRequest
                     "regex:/^[0-9+]+/",
                     "min:6",
                     "max:30",
-                    "unique:contacts,contact," . $this->id,
+//                    "unique:contacts,contact," . $this->id,
                 ],
             ];
         }
