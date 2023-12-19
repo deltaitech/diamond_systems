@@ -191,18 +191,6 @@
                     </span>
                     @enderror
                 </div>
-
-                <div class="col form-group">
-                    <label>{{ __('words.newsletter_email') }}<span
-                            class="text-danger">*</span></label>
-                    <input class="form-control @error('newsletter_email') is-invalid @enderror " type="email"
-                           name="{{'newsletter_email'}}" value="{{ old('newsletter_email', $setting->newsletter_email) }}"/>
-                    @error('newsletter_email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
             </div>
             <div class="form-group row">
                 @include('admin.components.image', [
@@ -228,14 +216,6 @@
                    'id' => 'kt_image_3',
                    'required' => false,
                ])
-
-                @include('admin.components.image', [
-                    'label' => __('words.contact_img'),
-                    'value' => $setting->contact_img,
-                    'name' => 'contact_img',
-                    'id' => 'kt_image_4',
-                    'required' => false,
-                ])
 
                 @include('admin.components.image', [
                     'label' => __('words.footer_img'),
@@ -271,20 +251,3 @@
     @endpermission
 
 @endsection
-
-{{--@section('scripts')--}}
-{{--    <script>--}}
-{{--        $("#form").submit(function(e) {--}}
-{{--            e.preventDefault();--}}
-{{--            let links = document.querySelectorAll('.link');--}}
-{{--            links.forEach(function(link) {--}}
-{{--                let position = link.value.includes('https');--}}
-{{--                if (position > -1) {--}}
-{{--                    let enhancedLink = link.value.replace("https://", "http://");--}}
-{{--                    link.value = enhancedLink;--}}
-{{--                }--}}
-{{--            });--}}
-{{--            this.submit();--}}
-{{--        });--}}
-{{--    </script>--}}
-{{--@endsection--}}

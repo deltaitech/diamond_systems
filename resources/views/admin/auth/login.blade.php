@@ -49,7 +49,7 @@
         <!--end::Layout Themes-->
     @endif
 
-    <link rel="shortcut icon" href="{{settings()->logo}}" />
+    <link rel="shortcut icon" href="{{settings()->favicon}}" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
@@ -73,7 +73,7 @@
                 <!--begin::Login Header-->
                 <div class="d-flex flex-center mb-15">
                     <a href="#">
-                        <img src="{{settings()->logo}}" class="max-h-75px" alt=""/>
+                        <img src="{{settings()->white_logo}}" class="max-h-75px" alt=""/>
                     </a>
                 </div>
                 <!--end::Login Header-->
