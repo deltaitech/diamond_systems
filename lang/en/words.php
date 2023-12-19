@@ -161,6 +161,27 @@ return [
     "edit_service" => "Edit Service",
     "create_service" => "Create Service",
 
+    "clients" => "Clients",
+    "show_clients" => "Show Clients",
+    "show_client" => "Show Client",
+    "edit_client" => "Edit Client",
+    "create_client" => "Create Client",
+
+    "number" => "Number",
+    "counters" => "Counters",
+    "counter" => "Counter",
+    "show_counters" => "Show Counters",
+    "show_counter" => "Show Counter",
+    "edit_counter" => "Edit Counter",
+    "create_counter" => "Create Counter",
+
+    "features" => "Features",
+    "feature" => "Feature",
+    "show_features" => "Show Features",
+    "show_feature" => "Show Features",
+    "edit_feature" => "Edit Features",
+    "create_feature" => "Create Features",
+
     "partners" => "Partners",
     "show_partners" => "Show Partners",
     "show_partner" => "Show Partner",

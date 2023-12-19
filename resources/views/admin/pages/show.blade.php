@@ -25,16 +25,18 @@
             <div class="card-title">
                 <h3 class="card-label">{{ __('words.show_page') }}</h3>
             </div>
-            <div class="card-toolbar">
-                <ul class="nav nav-tabs nav-bold nav-tabs-line">
-                    @foreach (config('translatable.locales') as $key => $locale)
-                        <li class="nav-item">
-                            <a class="nav-link  @if ($key == 0) active @endif" data-toggle="tab"
-                               href="{{ '#' . $locale }}">{{ __('words.locale-' . $locale) }}</a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
+            @if(!config('translatable.locales') === 1)
+                <div class="card-toolbar">
+                    <ul class="nav nav-tabs nav-bold nav-tabs-line">
+                        @foreach (config('translatable.locales') as $key => $locale)
+                            <li class="nav-item">
+                                <a class="nav-link  @if ($key == 0) active @endif" data-toggle="tab"
+                                   href="{{ '#' . $locale }}">{{ __('words.locale-' . $locale) }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
         <div class="card-body p-10">
             <div class="tab-content">

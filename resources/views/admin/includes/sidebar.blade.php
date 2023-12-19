@@ -38,7 +38,8 @@
             <!--begin::Menu Nav-->
             <ul class="menu-nav">
                 {{-- home route start --}}
-                <li class="menu-item {{ request()->routeIs('admin.home') ? 'menu-item-active' : '' }}" aria-haspopup="true">
+                <li class="menu-item {{ request()->routeIs('admin.home') ? 'menu-item-active' : '' }}"
+                    aria-haspopup="true">
                     <a href="{{route('admin.home')}}" class="menu-link">
 										<span class="svg-icon menu-icon">
 											<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
@@ -65,9 +66,9 @@
 
                 {{-- role routes start --}}
                 @permission('read-roles')
-                    <li class="menu-item menu-item-submenu {{ request()->routeIs('roles.*') ? 'menu-item-open menu-item-here' : '' }}"
-                        aria-haspopup="true" data-menu-toggle="hover">
-                        <a href="javascript:;" class="menu-link menu-toggle">
+                <li class="menu-item menu-item-submenu {{ request()->routeIs('roles.*') ? 'menu-item-open menu-item-here' : '' }}"
+                    aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
 										<span class="svg-icon menu-icon">
 											<!--begin::Svg Icon | path:assets/media/svg/icons/Code/Compiling.svg-->
 											<svg xmlns="http://www.w3.org/2000/svg"
@@ -85,47 +86,47 @@
 											</svg>
                                             <!--end::Svg Icon-->
 										</span>
-                            <span class="menu-text">{{__('words.roles')}}</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="menu-submenu">
-                            <i class="menu-arrow"></i>
-                            <ul class="menu-subnav">
+                        <span class="menu-text">{{__('words.roles')}}</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
 
-                                @permission('read-roles')
-                                    <li class="menu-item  {{ request()->routeIs('roles.index') ? 'menu-item-active' : '' }}"
-                                        aria-haspopup="true">
-                                        <a href="{{route('roles.index')}}" class="menu-link">
-                                            <i class="menu-bullet menu-bullet-dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="menu-text">{{__('words.show_all')}}</span>
-                                        </a>
-                                    </li>
-                                @endpermission
+                            @permission('read-roles')
+                            <li class="menu-item  {{ request()->routeIs('roles.index') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('roles.index')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.show_all')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
 
-                                @permission('create-roles')
-                                    <li class="menu-item  {{ request()->routeIs('roles.create') ? 'menu-item-active' : '' }}"
-                                        aria-haspopup="true">
-                                        <a href="{{route('roles.create')}}" class="menu-link">
-                                            <i class="menu-bullet menu-bullet-dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="menu-text">{{__('words.create')}}</span>
-                                        </a>
-                                    </li>
-                                @endpermission
-                            </ul>
-                        </div>
-                    </li>
+                            @permission('create-roles')
+                            <li class="menu-item  {{ request()->routeIs('roles.create') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('roles.create')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.create')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+                        </ul>
+                    </div>
+                </li>
                 @endpermission
                 {{-- role routes end --}}
 
                 {{-- admin routes start --}}
                 @permission('read-admins')
-                    <li class="menu-item menu-item-submenu {{ request()->routeIs('admin-users.*') ? 'menu-item-open menu-item-here' : '' }}"
-                        aria-haspopup="true" data-menu-toggle="hover">
-                        <a href="javascript:;" class="menu-link menu-toggle">
+                <li class="menu-item menu-item-submenu {{ request()->routeIs('admin-users.*') ? 'menu-item-open menu-item-here' : '' }}"
+                    aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
 										<span class="svg-icon menu-icon"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Group.svg-->
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -142,39 +143,39 @@
                                                 </g>
                                         </svg><!--end::Svg Icon-->
                                         </span>
-                            <span class="menu-text">{{__('words.admins')}}</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="menu-submenu">
-                            <i class="menu-arrow"></i>
-                            <ul class="menu-subnav">
+                        <span class="menu-text">{{__('words.admins')}}</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
 
-                                @permission('read-admins')
-                                    <li class="menu-item  {{ request()->routeIs('admin-users.index') ? 'menu-item-active' : '' }}"
-                                        aria-haspopup="true">
-                                        <a href="{{route('admin-users.index')}}" class="menu-link">
-                                            <i class="menu-bullet menu-bullet-dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="menu-text">{{__('words.show_all')}}</span>
-                                        </a>
-                                    </li>
-                                @endpermission
+                            @permission('read-admins')
+                            <li class="menu-item  {{ request()->routeIs('admin-users.index') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('admin-users.index')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.show_all')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
 
-                                @permission('create-admins')
-                                    <li class="menu-item  {{ request()->routeIs('admin-users.create') ? 'menu-item-active' : '' }}"
-                                        aria-haspopup="true">
-                                        <a href="{{route('admin-users.create')}}" class="menu-link">
-                                            <i class="menu-bullet menu-bullet-dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="menu-text">{{__('words.create')}}</span>
-                                        </a>
-                                    </li>
-                                @endpermission
-                            </ul>
-                        </div>
-                    </li>
+                            @permission('create-admins')
+                            <li class="menu-item  {{ request()->routeIs('admin-users.create') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('admin-users.create')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.create')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+                        </ul>
+                    </div>
+                </li>
                 @endpermission
                 {{-- admin routes end --}}
 
@@ -220,39 +221,39 @@
                 @endpermission
                 {{-- slider routes end --}}
 
-                {{-- category routes start --}}
-                @permission('read-categories')
-                <li class="menu-item menu-item-submenu {{ request()->routeIs('categories.*') ? 'menu-item-open menu-item-here' : '' }}"
+                {{-- features routes start --}}
+                @permission('read-features')
+                <li class="menu-item menu-item-submenu {{ request()->routeIs('features.*') ? 'menu-item-open menu-item-here' : '' }}"
                     aria-haspopup="true" data-menu-toggle="hover">
                     <a href="javascript:;" class="menu-link menu-toggle">
-                        <i class="fas fa-layer-group svg-icon menu-icon"></i>
-                        <span class="menu-text">{{__('words.categories')}}</span>
+                        <i class="fas fa-star svg-icon menu-icon"></i>
+                        <span class="menu-text">{{ __('words.features') }}</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="menu-submenu">
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
 
-                            @permission('read-categories')
-                            <li class="menu-item  {{ request()->routeIs('categories.index') ? 'menu-item-active' : '' }}"
+                            @permission('read-features')
+                            <li class="menu-item  {{ request()->routeIs('features.index') ? 'menu-item-active' : '' }}"
                                 aria-haspopup="true">
-                                <a href="{{route('categories.index')}}" class="menu-link">
+                                <a href="{{ route('features.index') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">{{__('words.show_all')}}</span>
+                                    <span class="menu-text">{{ __('words.show_all') }}</span>
                                 </a>
                             </li>
                             @endpermission
 
-                            @permission('create-categories')
-                            <li class="menu-item  {{ request()->routeIs('categories.create') ? 'menu-item-active' : '' }}"
+                            @permission('create-features')
+                            <li class="menu-item  {{ request()->routeIs('features.create') ? 'menu-item-active' : '' }}"
                                 aria-haspopup="true">
-                                <a href="{{route('categories.create')}}" class="menu-link">
+                                <a href="{{ route('features.create') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">{{__('words.create')}}</span>
+                                    <span class="menu-text">{{ __('words.create') }}</span>
                                 </a>
                             </li>
                             @endpermission
@@ -260,49 +261,7 @@
                     </div>
                 </li>
                 @endpermission
-                {{-- category routes end --}}
-
-                {{-- product routes start --}}
-                @permission('read-products')
-                <li class="menu-item menu-item-submenu {{ request()->routeIs('products.*') ? 'menu-item-open menu-item-here' : '' }}"
-                    aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle">
-                        <i class="fab fa-product-hunt svg-icon menu-icon"></i>
-                        <span class="menu-text">{{__('words.products')}}</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="menu-submenu">
-                        <i class="menu-arrow"></i>
-                        <ul class="menu-subnav">
-
-                            @permission('read-products')
-                            <li class="menu-item  {{ request()->routeIs('products.index') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('products.index')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.show_all')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-
-                            @permission('create-products')
-                            <li class="menu-item  {{ request()->routeIs('products.create') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('products.create')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.create')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-                        </ul>
-                    </div>
-                </li>
-                @endpermission
-                {{-- product routes end --}}
+                {{-- features routes end --}}
 
                 {{-- service routes start --}}
                 @permission('read-services')
@@ -346,166 +305,39 @@
                 @endpermission
                 {{-- service routes end --}}
 
-                {{-- project routes start --}}
-                @permission('read-projects')
-                <li class="menu-item menu-item-submenu {{ request()->routeIs('projects.*') ? 'menu-item-open menu-item-here' : '' }}"
-                    aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle">
-                        <i class="fas fa-project-diagram svg-icon menu-icon"></i>
-                        <span class="menu-text">{{__('words.projects')}}</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="menu-submenu">
-                        <i class="menu-arrow"></i>
-                        <ul class="menu-subnav">
-
-                            @permission('read-projects')
-                            <li class="menu-item  {{ request()->routeIs('projects.index') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('projects.index')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.show_all')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-
-                            @permission('create-projects')
-                            <li class="menu-item  {{ request()->routeIs('projects.create') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('projects.create')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.create')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-                        </ul>
-                    </div>
-                </li>
-                @endpermission
-                {{-- project routes end --}}
-
-
-                {{-- team routes start --}}
-                @permission('read-teams')
-                <li class="menu-item menu-item-submenu {{ request()->routeIs('teams.*') ? 'menu-item-open menu-item-here' : '' }}"
-                    aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle">
-                        <i class="fas fa-gopuram svg-icon menu-icon"></i>
-                        <span class="menu-text">{{__('words.teams')}}</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="menu-submenu">
-                        <i class="menu-arrow"></i>
-                        <ul class="menu-subnav">
-
-                            @permission('read-teams')
-                            <li class="menu-item  {{ request()->routeIs('teams.index') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('teams.index')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.show_all')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-
-                            @permission('create-teams')
-                            <li class="menu-item  {{ request()->routeIs('teams.create') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('teams.create')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.create')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-                        </ul>
-                    </div>
-                </li>
-                @endpermission
-                {{-- team routes end --}}
-
-                {{-- testimonial routes start --}}
-                @permission('read-testimonials')
-                <li class="menu-item menu-item-submenu {{ request()->routeIs('testimonials.*') ? 'menu-item-open menu-item-here' : '' }}"
-                    aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle">
-                        <i class="fas fa-people-arrows svg-icon menu-icon"></i>
-                        <span class="menu-text">{{__('words.testimonials')}}</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="menu-submenu">
-                        <i class="menu-arrow"></i>
-                        <ul class="menu-subnav">
-
-                            @permission('read-testimonials')
-                            <li class="menu-item  {{ request()->routeIs('testimonials.index') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('testimonials.index')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.show_all')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-
-                            @permission('create-testimonials')
-                            <li class="menu-item  {{ request()->routeIs('testimonials.create') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('testimonials.create')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.create')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-                        </ul>
-                    </div>
-                </li>
-                @endpermission
-                {{-- testimonial routes end --}}
-
-                {{-- partner routes start --}}
-                @permission('read-partners')
-                <li class="menu-item menu-item-submenu {{ request()->routeIs('partners.*') ? 'menu-item-open menu-item-here' : '' }}"
+                {{-- client routes start --}}
+                @permission('read-clients')
+                <li class="menu-item menu-item-submenu {{ request()->routeIs('clients.*') ? 'menu-item-open menu-item-here' : '' }}"
                     aria-haspopup="true" data-menu-toggle="hover">
                     <a href="javascript:;" class="menu-link menu-toggle">
                         <i class="fas fa-handshake svg-icon menu-icon"></i>
-                        <span class="menu-text">{{__('words.partners')}}</span>
+                        <span class="menu-text">{{ __('words.clients') }}</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="menu-submenu">
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
 
-                            @permission('read-partners')
-                            <li class="menu-item  {{ request()->routeIs('partners.index') ? 'menu-item-active' : '' }}"
+                            @permission('read-clients')
+                            <li class="menu-item  {{ request()->routeIs('clients.index') ? 'menu-item-active' : '' }}"
                                 aria-haspopup="true">
-                                <a href="{{route('partners.index')}}" class="menu-link">
+                                <a href="{{ route('clients.index') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">{{__('words.show_all')}}</span>
+                                    <span class="menu-text">{{ __('words.show_all') }}</span>
                                 </a>
                             </li>
                             @endpermission
 
-                            @permission('create-partners')
-                            <li class="menu-item  {{ request()->routeIs('partners.create') ? 'menu-item-active' : '' }}"
+                            @permission('create-clients')
+                            <li class="menu-item  {{ request()->routeIs('clients.create') ? 'menu-item-active' : '' }}"
                                 aria-haspopup="true">
-                                <a href="{{route('partners.create')}}" class="menu-link">
+                                <a href="{{ route('clients.create') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">{{__('words.create')}}</span>
+                                    <span class="menu-text">{{ __('words.create') }}</span>
                                 </a>
                             </li>
                             @endpermission
@@ -513,41 +345,41 @@
                     </div>
                 </li>
                 @endpermission
-                {{-- partner routes end --}}
+                {{-- client routes end --}}
 
-                {{-- portfolio routes start --}}
-                @permission('read-portfolios')
-                <li class="menu-item menu-item-submenu {{ request()->routeIs('portfolios.*') ? 'menu-item-open menu-item-here' : '' }}"
+                {{-- counters routes start --}}
+                @permission('read-counters')
+                <li class="menu-item menu-item-submenu {{ request()->routeIs('counters.*') ? 'menu-item-open menu-item-here' : '' }}"
                     aria-haspopup="true" data-menu-toggle="hover">
                     <a href="javascript:;" class="menu-link menu-toggle">
-                        <i class="fas fa-window-restore svg-icon menu-icon"></i>
-                        <span class="menu-text">{{__('words.portfolios')}}</span>
+                        <i class="fas fa-stopwatch svg-icon menu-icon"></i>
+                        <span class="menu-text">{{ __('words.counters') }}</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="menu-submenu">
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
 
-                            @permission('read-portfolios')
-                            <li class="menu-item  {{ request()->routeIs('portfolios.index') ? 'menu-item-active' : '' }}"
+                            @permission('read-counters')
+                            <li class="menu-item  {{ request()->routeIs('counters.index') ? 'menu-item-active' : '' }}"
                                 aria-haspopup="true">
-                                <a href="{{route('portfolios.index')}}" class="menu-link">
+                                <a href="{{ route('counters.index') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">{{__('words.show_all')}}</span>
+                                    <span class="menu-text">{{ __('words.show_all') }}</span>
                                 </a>
                             </li>
                             @endpermission
 
-                            @permission('create-portfolios')
-                            <li class="menu-item  {{ request()->routeIs('portfolios.create') ? 'menu-item-active' : '' }}"
+                            @permission('create-counters')
+                            <li class="menu-item  {{ request()->routeIs('counters.create') ? 'menu-item-active' : '' }}"
                                 aria-haspopup="true">
-                                <a href="{{route('portfolios.create')}}" class="menu-link">
+                                <a href="{{ route('counters.create') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">{{__('words.create')}}</span>
+                                    <span class="menu-text">{{ __('words.create') }}</span>
                                 </a>
                             </li>
                             @endpermission
@@ -555,11 +387,12 @@
                     </div>
                 </li>
                 @endpermission
-                {{-- portfolio routes end --}}
+                {{-- counters routes end --}}
 
                 {{-- page routes start --}}
                 @permission('read-pages')
-                <li class="menu-item {{ request()->routeIs('pages.*') ? 'menu-item-active' : '' }}" aria-haspopup="true">
+                <li class="menu-item {{ request()->routeIs('pages.*') ? 'menu-item-active' : '' }}"
+                    aria-haspopup="true">
                     <a href="{{route('pages.index')}}" class="menu-link">
                         <i class="fas fa-file svg-icon menu-icon"></i>
                         <span class="menu-text">{{__('words.pages')}}</span>
@@ -567,90 +400,6 @@
                 </li>
                 @endpermission
                 {{-- page routes end --}}
-
-                {{-- blog routes start --}}
-                @permission('read-blog')
-                <li class="menu-item menu-item-submenu {{ request()->routeIs('blog.*') ? 'menu-item-open menu-item-here' : '' }}"
-                    aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle">
-                        <i class="fab fa-blogger-b  svg-icon menu-icon"></i>
-                        <span class="menu-text">{{__('words.blog')}}</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="menu-submenu">
-                        <i class="menu-arrow"></i>
-                        <ul class="menu-subnav">
-
-                            @permission('read-blog')
-                            <li class="menu-item  {{ request()->routeIs('blog.index') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('blog.index')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.show_all')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-
-                            @permission('create-blog')
-                            <li class="menu-item  {{ request()->routeIs('blog.create') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('blog.create')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.create')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-                        </ul>
-                    </div>
-                </li>
-                @endpermission
-                {{-- blog routes end --}}
-
-                {{-- faq routes start --}}
-                @permission('read-faqs')
-                <li class="menu-item menu-item-submenu {{ request()->routeIs('faqs.*') ? 'menu-item-open menu-item-here' : '' }}"
-                    aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle">
-                        <i class="far fa-question-circle svg-icon menu-icon"></i>
-                        <span class="menu-text">{{__('words.faqs')}}</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="menu-submenu">
-                        <i class="menu-arrow"></i>
-                        <ul class="menu-subnav">
-
-                            @permission('read-faqs')
-                            <li class="menu-item  {{ request()->routeIs('faqs.index') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('faqs.index')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.show_all')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-
-                            @permission('create-faqs')
-                            <li class="menu-item  {{ request()->routeIs('faqs.create') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('faqs.create')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.create')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-                        </ul>
-                    </div>
-                </li>
-                @endpermission
-                {{-- faq routes end --}}
 
                 {{-- contact routes start --}}
                 @permission('read-contacts')
@@ -694,48 +443,6 @@
                 @endpermission
                 {{-- contact routes end --}}
 
-                {{-- course routes start --}}
-                @permission('read-courses')
-                <li class="menu-item menu-item-submenu {{ request()->routeIs('courses.*') ? 'menu-item-open menu-item-here' : '' }}"
-                    aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle">
-                        <i class="fas fa-upload svg-icon menu-icon"></i>
-                        <span class="menu-text">{{__('words.courses')}}</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="menu-submenu">
-                        <i class="menu-arrow"></i>
-                        <ul class="menu-subnav">
-
-                            @permission('read-courses')
-                            <li class="menu-item  {{ request()->routeIs('courses.index') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('courses.index')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.show_all')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-
-                            @permission('create-courses')
-                            <li class="menu-item  {{ request()->routeIs('courses.create') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('courses.create')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.create')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-                        </ul>
-                    </div>
-                </li>
-                @endpermission
-                {{-- course routes end --}}
-
                 {{-- contact_requests route start --}}
                 @permission('read-contact_us')
                 <li class="menu-item {{ request()->routeIs('contact_requests.*') ? 'menu-item-active' : '' }}"
@@ -748,63 +455,10 @@
                 @endpermission
                 {{-- contact_requests route end --}}
 
-                {{-- news letter routes start --}}
-                @permission('read-news_letters')
-                <li class="menu-item menu-item-submenu {{ request()->routeIs('news-letters.*') ? 'menu-item-open menu-item-here' : '' }}"
-                    aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle">
-                        <i class="fas fa-mail-bulk svg-icon menu-icon"></i>
-                        <span class="menu-text">{{__('words.news_letters')}}</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="menu-submenu">
-                        <i class="menu-arrow"></i>
-                        <ul class="menu-subnav">
-
-                            @permission('read-news_letters')
-                            <li class="menu-item  {{ request()->routeIs('news-letters.index') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('news-letters.index')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.show_all')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-
-                            @permission('create-news_letters')
-                            <li class="menu-item  {{ request()->routeIs('news-letters.create') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('news-letters.create')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.create')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-
-                            @permission('show_subscribed_users-news_letters')
-                            <li class="menu-item  {{ request()->routeIs('news-letters.subscribed') ? 'menu-item-active' : '' }}"
-                                aria-haspopup="true">
-                                <a href="{{route('news-letters.subscribed')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">{{__('words.subscribed')}}</span>
-                                </a>
-                            </li>
-                            @endpermission
-                        </ul>
-                    </div>
-                </li>
-                @endpermission
-                {{-- news letter routes end --}}
-
                 {{-- setting route start --}}
                 @permission('read-settings')
-                <li class="menu-item {{ request()->routeIs('settings.*') ? 'menu-item-active' : '' }}" aria-haspopup="true">
+                <li class="menu-item {{ request()->routeIs('settings.*') ? 'menu-item-active' : '' }}"
+                    aria-haspopup="true">
                     <a href="{{route('settings.index')}}" class="menu-link">
                         <i class="fas fa-users-cog svg-icon menu-icon"></i>
 

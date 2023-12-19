@@ -1,18 +1,18 @@
 @extends('admin.layouts.master')
-@section('title', settings()->website_title . ' | ' . __('words.create_service'))
+@section('title', settings()->website_title . ' | ' . __('words.create_feature'))
 @section('breadcrumb')
     <div class="d-flex align-items-baseline flex-wrap mr-5">
         <!--begin::Breadcrumb-->
-        <h5 class="text-dark font-weight-bold my-1 mr-5">{{ __('words.services') }}</h5>
+        <h5 class="text-dark font-weight-bold my-1 mr-5">{{ __('words.features') }}</h5>
         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
             <li class="breadcrumb-item">
                 <a href="{{ route('admin.home') }}" class="text-muted">{{ __('words.home') }}</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="{{ route('services.index') }}" class="text-muted">{{ __('words.show_services') }}</a>
+                <a href="{{ route('features.index') }}" class="text-muted">{{ __('words.show_features') }}</a>
             </li>
             <li class="breadcrumb-item">
-                <span class="text-muted">{{ __('words.create_service') }}</span>
+                <span class="text-muted">{{ __('words.create_feature') }}</span>
             </li>
         </ul>
         <!--end::Breadcrumb-->
@@ -20,7 +20,7 @@
 @endsection
 
 @extends('admin.components.create-form')
-@section('form_action', route('services.store'))
+@section('form_action', route('features.store'))
 @section('form_type', 'POST')
 
 @section('form_content')
@@ -28,7 +28,7 @@
     <div class="card card-custom mb-2">
         <div class="card-header card-header-tabs-line">
             <div class="card-title">
-                <h3 class="card-label">{{ __('words.create_service') }}</h3>
+                <h3 class="card-label">{{ __('words.create_feature') }}</h3>
             </div>
             @if(!config('translatable.locales') === 1)
                 <div class="card-toolbar">
@@ -68,18 +68,6 @@
                         </div>
 
                         <div class="col form-group">
-                            <label>{{ __('words.short_description') }}({{ __('words.locale-' . $locale) }})<span
-                                    class="text-danger">*</span></label>
-                            <textarea class="form-control ckeditor @error($locale . '.short_description') is-invalid @enderror " type="text"
-                                name="{{ $locale . '[short_description]' }}" rows="4">{{ old($locale . '.short_description') }} </textarea>
-                            @error($locale . '[short_description]')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                        <div class="col form-group">
                             <label>{{ __('words.description') }}({{ __('words.locale-' . $locale) }})<span
                                     class="text-danger">*</span></label>
                             <textarea class="form-control ckeditor @error($locale . '.description') is-invalid @enderror " type="text"
@@ -107,14 +95,6 @@
             </div>
 
             <div class="form-group row">
-                @include('admin.components.image', [
-                    'label' => __('words.image'),
-                    'value' => old('image'),
-                    'name' => 'image',
-                    'id' => 'kt_image_3',
-                    'required' => false,
-                ])
-
                 @include('admin.components.switch', [
                     'label' => __('words.status'),
                     'name' => 'status',
