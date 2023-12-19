@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingSeeder::class);
         $this->call(SettingContactSeeder::class);
         $this->call(SliderSeeder::class);
-//        NewsLetter::factory(6000)->create();
+        $this->call(SliderSeeder::class);
+        $this->call(FeatureSeeder::class);
     }
 }

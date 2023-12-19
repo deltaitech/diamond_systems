@@ -12,62 +12,29 @@ class FeatureSeeder extends Seeder
     public function run()
     {
         //features
-        $title_ar = [
-            'أفضل مواد خام ',
-            'أخشاب معالجة',
-            'جميع الأحجام',
-            'خدمة ما بعد البيع',
-            'حلول المنتجات حسب الطلب',
+        $title = [
+            'أحدث التقنيات',
+            'ضمان على الأجهزة',
+            'الثقة والأمان',
         ];
 
-        $title_en = [
-            'Best raw materials',
-            'Treated wood',
-            'All sizes',
-            'After sales service',
-            'Customized product solutions',
-        ];
-
-        $description_ar = [
-            '<p>مواد خام عالية الجودة مستوردة من موردين معتمدين</p>',
-            '<p>نستخدم اخشاب معالجة حراريًا (Standard ISPM-15)</p>',
-            '<p>تنفيذ جميع الأحجام والأشكال</p>',
-            '<p>لدينا خدمة ما بعد البيع لدينا استثنائية</p>',
-            '<p>حلول مخصصة لأي أثاث من الخشب مصممة لاحتياجاتك</p>',
-
-        ];
-
-        $description_en = [
-            '<p>High quality raw materials imported from certified suppliers</p>',
-            '<p>We use heat-treated wood (Standard ISPM-15)</p>',
-            '<p>Implement all sizes and shapes</p>',
-            '<p>Our after-sales service is exceptional</p>',
-            '<p>Custom solutions for any wood furniture tailored to your needs</p>',
-
+        $description = [
+            '<p>تعمل شركة الأنظمة الماسية بأحدث التقنيات لتوفير متطلباتك</p>',
+            '<pتوفر الشركة ضمان شامل على الأجهزة والتقنيات المستخدة</p>',
+            '<p>من خلال شركتنا سنوفر لك الثقة والأمان لراحتك</p>',
         ];
 
         $icon = [
-            'fas fa-luggage-cart',
-            'fab fa-firstdraft',
-            'fas fa-expand-arrows-alt',
-            'fas fa-headset',
-            'fas fa-chair',
+            'fas fa-laptop',
+            'fas fa-certificate',
+            'fas fa-user-shield',
         ];
 
-
-        for ($i = 0; $i < count($title_en); $i++) {
+        for ($i = 0; $i < count($title); $i++) {
             $feature = Feature::create([
                 'ar' => [
-                    'title' => $title_ar[$i],
-                    'description' => $description_ar[$i],
-
-
-                ],
-
-                'en' => [
-                    'title' => $title_en[$i],
-                    'description' => $description_en[$i],
-
+                    'title' => $title[$i],
+                    'description' => $description[$i],
                 ],
                 'status' => 1,
                 'icon' => $icon[$i],
