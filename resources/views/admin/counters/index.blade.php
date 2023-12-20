@@ -55,6 +55,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>{{ __('words.icon') }}</th>
                         <th>{{ __('words.title') }}</th>
                         <th>{{ __('words.number') }}</th>
                         <th>{{ __('words.status') }}</th>
@@ -68,6 +69,7 @@
                         <tr>
 
                             <td>{{ $key + 1 }}</td>
+                            <td><i id="IconPreview" style="font-size:40px" class="{{ $counter->icon }}"></i></td>
                             <td>{{ $counter->title }}</td>
                             <td>{{ $counter->number }}</td>
                             <td><span

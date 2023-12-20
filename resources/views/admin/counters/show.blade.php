@@ -42,7 +42,7 @@
             <div class="tab-content">
                 @foreach (config('translatable.locales') as $key => $locale)
                     <div class="tab-pane fade show @if ($key == 0) active @endif" id="{{ $locale }}"
-                        role="tabpanel">
+                         role="tabpanel">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-7 bg-light p-5 rounded h-100">
@@ -102,23 +102,31 @@
                             </p>
                         </div>
                     </div>
-
-
                 </div>
 
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-7 bg-light p-5 rounded h-100">
+                            <div class="card-title">
+                                <h5 class="font-weight-bolder text-dark">{{ __('words.icon') }}:</h5>
+                            </div>
+                            <i class="{{ $counter->icon }}" style="font-size:40px"></i>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
             @permission('update-counters')
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="col-4">
-                            <a href="{{ route('counters.edit', $counter->id) }}" class="btn btn-block btn-outline-info">
-                                {{ __('words.edit') }}
-                            </a>
-                        </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-4">
+                        <a href="{{ route('counters.edit', $counter->id) }}" class="btn btn-block btn-outline-info">
+                            {{ __('words.edit') }}
+                        </a>
                     </div>
                 </div>
+            </div>
             @endpermission
         </div>
     </div>

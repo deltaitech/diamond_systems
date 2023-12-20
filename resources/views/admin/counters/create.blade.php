@@ -47,20 +47,21 @@
             <div class="tab-content">
                 @foreach (config('translatable.locales') as $key => $locale)
                     <div class="tab-pane fade show @if ($key == 0) active @endif" id="{{ $locale }}"
-                        role="tabpanel">
+                         role="tabpanel">
                         <div class="col form-group">
-                            <label>{{ __('words.title') }} - {{ __('words.locale-' . $locale) }}<span class="text-danger">
+                            <label>{{ __('words.title') }} - {{ __('words.locale-' . $locale) }}<span
+                                    class="text-danger">
                                     * </span></label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="flaticon-edit"></i></span>
                                 </div>
                                 <input type="text" name="{{ $locale . '[title]' }}"
-                                    placeholder="{{ __('words.title') }}"
-                                    class="form-control  pl-5 min-h-40px @error($locale . '.title') is-invalid @enderror"
-                                    value="{{ old($locale . '.title') }}">
+                                       placeholder="{{ __('words.title') }}"
+                                       class="form-control  pl-5 min-h-40px @error($locale . '.title') is-invalid @enderror"
+                                       value="{{ old($locale . '.title') }}">
                                 @error($locale . '[title]')
-                                    <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -83,10 +84,10 @@
                             <span class="input-group-text"><i class="flaticon-edit"></i></span>
                         </div>
                         <input type="number" name="{{ 'number' }}" placeholder="{{ __('words.number') }}"
-                            class="form-control  pl-5 min-h-40px @error('number') is-invalid @enderror"
-                            value="{{ old('number') }}">
+                               class="form-control  pl-5 min-h-40px @error('number') is-invalid @enderror"
+                               value="{{ old('number') }}">
                         @error('[number]')
-                            <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
@@ -95,6 +96,13 @@
                 {{-- number end --}}
             </div>
 
+            <div class="form-group row">
+                @include('admin.components.icon', [
+                    'label' => __('words.icon'),
+                    'value' => old('icon', 'fab fa-github'),
+                    'required' => false,
+                ])
+            </div>
 
             <div class="form-group row">
                 @include('admin.components.switch', [
@@ -105,11 +113,8 @@
                 ])
 
             </div>
-
         </div>
-
     </div>
-
 
     <div class="card-footer">
         <div class="row">

@@ -11,34 +11,18 @@ class CounterSeeder extends Seeder
     public function run()
     {
         //features
-        $title_ar = [
-            'مشاريع مكتملة',
-            'عملاء سعداء',
-        ];
+        $title = ['مشاريع كاميرات المراقبة', 'نظام إنذار', 'الوصول من الباب', 'عملاء سعداء'];
+        $number = ['1240', '362', '1240', '1300'];
+        $icons = ['fas fa-camera', 'far fa-clock', 'far fa-address-card', 'fas fa-child'];
 
-        $title_en = [
-            'Projects Completed',
-            'Happy Clients',
-        ];
-
-        $number = [
-            '100',
-            '150',
-        ];
-
-
-        for ($i = 0; $i < 2; $i++) {
+        for ($i = 0; $i < count($title); $i++) {
             $counter = Counter::create([
                 'ar' => [
-                    'title' => $title_ar[$i],
+                    'title' => $title[$i],
                 ],
-
-                'en' => [
-                    'title' => $title_en[$i],
-                ],
-                'status' => 1,
+                'icon' => $icons[$i],
                 'number' => $number[$i],
-
+                'status' => 1,
             ]);
         }
     }
