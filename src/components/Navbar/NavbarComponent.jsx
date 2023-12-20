@@ -75,8 +75,8 @@ const NavbarComponent = () => {
             src={data.settings.logo}
             alt={data.settings.website_title}
             style={{
-              width: "24rem",
-              height: "5.5rem",
+              width: "15rem",
+              height: "4.5rem",
             }}
           />
         </Navbar.Brand>
@@ -101,8 +101,8 @@ const NavbarComponent = () => {
                 src={data.settings.logo}
                 alt={data.settings.website_title}
                 style={{
-                  width: "20rem",
-                  height: "5.5rem",
+                  width: "15rem",
+                  height: "4.5rem",
                 }}
               />
             </Offcanvas.Title>
