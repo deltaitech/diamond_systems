@@ -7,7 +7,7 @@ const PreLoader = () => {
   return (
     <>
       <div className="preloader">
-        <Image
+        {/* <Image
           src={logo}
           alt="Cherry Wood Logo"
           className="image animate__animated animate__heartBeat animate__infinite animate__slower"
@@ -18,7 +18,15 @@ const PreLoader = () => {
               import.meta.url
             ).href;
           }}
-        />
+        /> */}
+
+        <div className="pre-loader">
+          <div className="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
       </div>
     </>
   );
