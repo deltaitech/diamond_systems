@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PageSeeder::class);
         $this->call(CounterSeeder::class);
         $this->call(ClientSeeder::class);
+        $this->call(ServiceSeeder::class);
     }
 }

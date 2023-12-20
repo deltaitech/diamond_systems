@@ -68,18 +68,6 @@
                         </div>
 
                         <div class="col form-group">
-                            <label>{{ __('words.short_description') }}({{ __('words.locale-' . $locale) }})<span
-                                    class="text-danger">*</span></label>
-                            <textarea class="form-control ckeditor @error($locale . '.short_description') is-invalid @enderror " type="text"
-                                name="{{ $locale . '[short_description]' }}" rows="4">{{ old($locale . '.short_description') }} </textarea>
-                            @error($locale . '[short_description]')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                        <div class="col form-group">
                             <label>{{ __('words.description') }}({{ __('words.locale-' . $locale) }})<span
                                     class="text-danger">*</span></label>
                             <textarea class="form-control ckeditor @error($locale . '.description') is-invalid @enderror " type="text"
@@ -98,14 +86,6 @@
 
     <div class="card card-custom">
         <div class="card-body">
-            <div class="form-group row">
-                @include('admin.components.icon', [
-                    'label' => __('words.icon'),
-                    'value' => old('icon', 'fab fa-github'),
-                    'required' => false,
-                ])
-            </div>
-
             <div class="form-group row">
                 @include('admin.components.image', [
                     'label' => __('words.image'),

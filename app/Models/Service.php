@@ -18,7 +18,7 @@ class Service extends Model
 
     protected $appends = ['image'];
 
-    public $translatedAttributes = ['title','short_description','description'];
+    public $translatedAttributes = ['title','description'];
 
     public $timestamps = true;
 

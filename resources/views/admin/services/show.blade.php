@@ -53,16 +53,6 @@
                                     <p class="m-0">{{ $service->translate($locale)->title }}</p>
                                 </div>
                             </div>
-
-                            <div class="col-md-6">
-                                <div class="mb-7 bg-light p-5 rounded h-100">
-                                    <div class="card-title">
-                                        <h5 class="font-weight-bolder text-dark">{{ __('words.short_description') }}
-                                            - {{ __('words.locale-' . $locale) }}:</h5>
-                                    </div>
-                                    <p class="m-0">{{ $service->translate($locale)->short_description }}</p>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="row">
@@ -127,15 +117,6 @@
                             <img src="{{ $service->image }}" class="img-fluid mb-2 image-galley"
                                  onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="service image"/>
                         </a>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="mb-7 bg-light p-5 rounded h-100">
-                            <div class="card-title">
-                                <h5 class="font-weight-bolder text-dark">{{ __('words.icon') }}:</h5>
-                            </div>
-                            <i class="{{ $service->icon }} fa-lg"></i>
-                        </div>
                     </div>
                 </div>
 

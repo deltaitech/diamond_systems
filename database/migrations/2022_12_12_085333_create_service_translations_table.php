@@ -18,7 +18,6 @@ class CreateServiceTranslationsTable extends Migration
             $table->unsignedBigInteger('service_id');
             $table->string('locale')->index();
             $table->string('title')->nullable();
-            $table->text('short_description')->nullable();
             $table->longText('description')->nullable();
 
             $table->unique(['service_id', 'locale']);

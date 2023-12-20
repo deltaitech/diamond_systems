@@ -57,7 +57,6 @@
                     <th>#</th>
                     <th>{{ __('words.image') }}</th>
                     <th>{{ __('words.title') }}</th>
-                    <th>{{ __('words.short_description') }}</th>
                     <th>{{ __('words.status') }}</th>
                     <th>{{ __('words.created_at') }}</th>
                     <th>{{ __('words.updated_at') }}</th>
@@ -89,7 +88,6 @@
                             @endif
                         </td>
                         <td>{{ $service->title }}</td>
-                        <td>{!! $service->short_description !!}</td>
                         <td><span
                                 class="badge rounded-pill text-white {{$service->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $service->getActive() }}</span>
                         </td>
