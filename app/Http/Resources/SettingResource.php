@@ -22,7 +22,7 @@ class SettingResource extends JsonResource
             'white_logo' => $this->white_logo,
             'favicon' => $this->favicon,
             'breadcrumb' => $this->breadcrumb,
-            'profile' => $this->profile,
+            'footer_img' => $this->footer_img,
         ];
 
         $data['contacts'] = [

@@ -9,7 +9,8 @@
                 <a href="{{ route('admin.home') }}" class="text-muted">{{ __('words.home') }}</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="{{ route('contact_requests.index') }}" class="text-muted">{{ __('words.show_contact_requests') }}</a>
+                <a href="{{ route('contact_requests.index') }}"
+                   class="text-muted">{{ __('words.show_contact_requests') }}</a>
             </li>
             <li class="breadcrumb-item">
                 <span class="text-muted">{{ __('words.reply') }}</span>
@@ -28,6 +29,19 @@
     <div class="card card-custom mb-2">
         <input type="hidden" name="id" value="{{ $contact_request->id }}">
         <div class="card-body">
+            <div class="row mb-3">
+                <div class="col">
+                    <label>{{ __('words.name') }}:</label>
+                    <span style="font-weight: bold;">{{$contact_request->name}}</span>
+                </div>
+
+                <div class="col">
+                    <label>{{ __('words.email') }}:</label>
+                    <span style="font-weight: bold;">{{$contact_request->email}}</span>
+                </div>
+
+            </div>
+            <hr>
             <div class="col form-group">
                 <label>{{ __('words.subject') }}<span class="text-danger"></span></label>
                 <div class="input-group">
@@ -35,10 +49,10 @@
                         <span class="input-group-text"><i class="flaticon-edit"></i></span>
                     </div>
                     <input type="text" name="subject" placeholder="{{ __('words.subject') }}"
-                        class="form-control  pl-5 min-h-40px @error('subject') is-invalid @enderror"
-                        value="{{ old('subject') }}">
+                           class="form-control  pl-5 min-h-40px @error('subject') is-invalid @enderror"
+                           value="{{ old('subject') }}">
                     @error('[subject]')
-                        <span class="invalid-feedback" role="alert">
+                    <span class="invalid-feedback" role="alert">
                             <strong>{{ $subject }}</strong>
                         </span>
                     @enderror
@@ -46,9 +60,10 @@
             </div>
             <div class="col form-group">
                 <label>{{ __('words.message') }}<span class="text-danger">*</span></label>
-                <textarea class="form-control ckeditor @error('message') is-invalid @enderror " type="text" name="message" rows="4">{{ old('message') }} </textarea>
+                <textarea class="form-control ckeditor @error('message') is-invalid @enderror " type="text"
+                          name="message" rows="4">{{ old('message') }} </textarea>
                 @error('message')
-                    <span class="invalid-feedback" role="alert">
+                <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror

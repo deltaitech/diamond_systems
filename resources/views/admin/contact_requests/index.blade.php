@@ -68,7 +68,7 @@
                     @foreach ($contact_us_requests as $key => $contact_us_request)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td class="text-capitalize">{{ $contact_us_request->fname }} {{ $contact_us_request->lname }}
+                            <td class="text-capitalize">{{ $contact_us_request->name }}
                             </td>
                             <td class="text-capitalize">{!! Str::limit($contact_us_request->message, 200) !!}</td>
                             <td style="direction: ltr !important;text-align: left;">{{ $contact_us_request->email }}</td>

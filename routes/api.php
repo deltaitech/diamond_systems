@@ -25,6 +25,15 @@ Route::group(['middleware' => 'APILocalization'], function () {
         });
     });
 
-    // newsletter route
-    Route::post('newsletter','NewsletterController');
+    // home route
+    Route::get('home', 'HomeController');
+
+    // services route
+    Route::get('services', 'ServiceController');
+
+    // Settings route
+    Route::get('settings', 'SettingController@index');
+
+    // Contact Request Route
+    Route::post('contact', 'SettingController@contact');
 });

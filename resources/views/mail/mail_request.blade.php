@@ -137,7 +137,7 @@
             }
 
             .es-m-txt-l, .es-m-txt-l h1, .es-m-txt-l h2, .es-m-txt-l h3 {
-                text-align: {{(App::isLocale('ar') ? 'right' : 'left')}}   !important
+                text-align: {{(App::isLocale('ar') ? 'right' : 'left')}}    !important
             }
 
             .es-m-txt-r img, .es-m-txt-c img, .es-m-txt-l img {
@@ -448,7 +448,7 @@
                                                             <td align="center" style="padding:0;Margin:0;font-size:0px">
                                                                 <a target="_blank" href="{{request()->root()}}"
                                                                    style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#D48344;font-size:14px"><img
-                                                                        class="adapt-img" alt
+                                                                        class="adapt-img" alt="{{settings()->website_title}}" src="{{settings()->logo}}"
                                                                         style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"
                                                                         width="160"></a></td>
                                                         </tr>
@@ -514,14 +514,7 @@
                                                         role="presentation">
                                                         <tr style="border-collapse:collapse">
                                                             <td align="{{(App::isLocale('ar') ? 'right' : 'left')}}"
-                                                                style="padding:20px;Margin:0"><h4
-                                                                    style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:'trebuchet ms', helvetica, sans-serif;font-size:18px">
-                                                                    {{__('words.contact_details')}} :</h4>
-                                                            </td>
-                                                        </tr>
-                                                        <tr style="border-collapse:collapse">
-                                                            <td align="{{(App::isLocale('ar') ? 'right' : 'left')}}"
-                                                                style="padding:0;Margin:0;padding-bottom:20px;padding-left:20px;padding-right:20px">
+                                                                style="padding:20px;Margin:0;padding-bottom:20px;padding-left:20px;padding-right:20px">
                                                                 <table
                                                                     style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;border-color:#eee;width:100%"
                                                                     cellspacing="1" cellpadding="1" border="0"
@@ -571,8 +564,8 @@
                     <tr style="border-collapse:collapse">
                         <td align="center" style="padding:0;Margin:0">
                             <table class="es-footer-body" cellspacing="0" cellpadding="0" align="center"
-                                   bgcolor="#2681db"
-                                   style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#2681db;width:600px;color: #ffffff">
+                                   bgcolor="#7b502b"
+                                   style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#7b502b;width:600px;color: #ffffff">
                                 <tr style="border-collapse:collapse">
                                     <td align="{{(App::isLocale('ar') ? 'right' : 'left')}}"
                                         style="padding:20px;Margin:0">
@@ -581,7 +574,7 @@
                                             <tr style="border-collapse:collapse">
                                                 <td align="{{(App::isLocale('ar') ? 'right' : 'left')}}"
                                                     style="padding:0;Margin:0;width:560px;text-align: center;font-size: 10px;">
-                                                    {{__('words.rights') . settings()->website_title . '&copy;'. ' ' . now()->year }}
+                                                    {{__('words.rights') . settings()->website_title . ' ' .'©'. ' ' . now()->year }}
                                                 </td>
                                             </tr>
                                         </table>

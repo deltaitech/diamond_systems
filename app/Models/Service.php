@@ -28,6 +28,12 @@ class Service extends Model
     {
         return $query->where('status', 1);
     }
+    public function scopeSearch($query)
+    {
+        $query->when(request()->id, function ($q) {
+            return $q->where('id', request()->id);
+        });
+    }
     // Scopes end
 
     // accessors & Mutator start

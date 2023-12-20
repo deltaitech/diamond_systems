@@ -18,4 +18,5 @@ return [
     'active_session' => 'You still use this account right now, please contact administrator to delete your account if you want !',
     'sent_successfully' => 'Sent successfully',
     'unsubscribed' => 'Unsubscribed successfully',
+    'reply' => 'Replied successfully',
 ];
