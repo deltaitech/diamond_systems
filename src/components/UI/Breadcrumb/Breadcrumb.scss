@@ -1,0 +1,62 @@
+@use "../../../utils/Styles/global" as *;
+
+.custom_breadcrumb {
+    margin-block-start: 6rem;
+    background: linear-gradient(to top,
+            rgba($textColor, 0.65) 20%,
+            rgba($secondaryColor, 0.7) 60%,
+            transparent), var(--breadcrumb-img);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-block: 10vh;
+
+
+    .container {
+        // margin-block-start: 10vh;
+
+        .breadcrumb_main_title {
+            padding-block-end: 1rem;
+            @include flexDiv();
+            color: $whiteColor;
+            text-transform: uppercase;
+            font-size: 2.857em;
+            line-height: normal;
+            // font-style: italic;
+            font-weight: 900;
+        }
+
+        nav {
+            .breadcrumb-item {
+                padding-inline-start: 0 !important;
+
+                a {
+                    text-decoration: none;
+                    color: $whiteColor;
+                    font-weight: 500;
+                    font-size: clamp(1rem, 7vw, 1.4rem);
+
+                    &:hover {
+                        text-decoration: none;
+                        color: $primaryColor;
+                    }
+                }
+
+                &.active {
+                    color: $primaryColor !important;
+                    font-size: clamp(1rem, 7vw, 1.2rem);
+                }
+
+                &::before {
+                    color: $whiteColor !important;
+                    font-size: clamp(1rem, 7vw, 1.4rem);
+                    float: unset !important;
+                    padding-left: var(--bs-breadcrumb-item-padding-x);
+                }
+
+
+            }
+
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@use "../../utils/Styles/global" as *;
+
+.separatorSection {
+    padding-block: 6rem;
+    // background-attachment:fixed !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+
+    .separatorDetails {
+        @include flexDiv();
+        flex-direction: column;
+        padding: 2rem;
+
+        .separatorSubTitle {
+            color: rgba($whiteColor, 0.8);
+            font-size: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        .separatorTitle {
+            color: $whiteColor;
+            font-weight: 700;
+            font-size: clamp(0.5rem, 5vw, 3rem);
+        }
+
+        button {
+            width: fit-content;
+            margin-block-start: 2rem;
+            @include customButton($secondaryColor, $secondaryColor, $whiteColor, $whiteColor, $primaryColor, $primaryColor);
+            @include flexStartDiv()
+        }
+    }
+}

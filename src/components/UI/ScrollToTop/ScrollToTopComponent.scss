@@ -1,0 +1,31 @@
+@use './../../../utils/Styles/global' as *;
+
+.scroll-container {
+    @include flexDiv();
+    position: fixed;
+    bottom: 2.7rem;
+    inset-inline-start: 2rem;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    background: linear-gradient(to right, rgba($thirdColor, 0.75), rgba($secondaryColor, 0.75));
+    color: $whiteColor;
+    padding: 1rem;
+    border-radius: 50%;
+    z-index: 99;
+    opacity: 1;
+    transition: opacity ease-in-out 500ms;
+    transition: background-color ease-in-out 500ms;
+    animation: drop 1s forwards, delay 1s;
+
+    &:hover {
+        background: linear-gradient(to right, rgba($primaryColor, 0.8), rgba($primaryColor, 0.8));
+        transition: background-color ease-in-out 500ms;
+    }
+
+    &::after {
+        content: "\f106";
+        font-family: 'FontAwesome' !important;
+        font-size: 20px;
+    }
+}

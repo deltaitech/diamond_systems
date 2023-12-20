@@ -1,0 +1,86 @@
+@use "../../utils/Styles/global" as *;
+
+.contactPage {
+    .contactPageContainer {
+        background-color: $whiteColor;
+        padding: 3rem;
+        // margin-block-end: 7rem;
+
+        .contactInfo {
+            @include flexStartDiv();
+            flex-direction: column;
+            justify-content: center !important;
+            overflow: hidden;
+            background-color: rgba($textColor, 0.1);
+            padding: 1.5rem;
+
+            .logo {
+                margin: 0 auto;
+                width: 100% !important;
+                height: 7rem;
+                object-fit: contain;
+                object-position: center;
+            }
+
+            .map {
+                iframe {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+
+    .contactDetailsContainer {
+        margin-block-start: 2rem;
+        margin-block-end: 9rem;
+
+        .contactDetailsColumn {
+            @include flexDiv();
+            background-color: $whiteColor;
+            margin-inline-end: 0.5rem;
+            padding: 2rem;
+
+            .icon{
+                text-align: center;
+                font-size: 1.7rem;
+                color: $featureMiddleColumn;
+            }
+
+            .contact {
+                direction: ltr;
+                text-align: center !important;
+                margin: 0 !important;
+                font-family: inherit !important;
+
+                a {
+                    text-decoration: none;
+                    color: $primaryColor;
+
+                    &:hover {
+                        color: $secondaryColor;
+                    }
+                }
+            }
+        }
+    }
+
+    .social {
+        width: 100%;
+        @include flexDiv();
+        inset: 0;
+
+        .socialIcon {
+            border-radius: 0.4rem;
+            color: $primaryColor;
+            scale: 1;
+            margin-inline-end: 0.5rem;
+            transition: scale ease-in-out 0.4s;
+
+            &:hover {
+                color: $secondaryColor;
+                scale: 1.2;
+            }
+        }
+    }
+
+}

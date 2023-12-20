@@ -1,0 +1,50 @@
+$primaryColor : rgb(123, 80, 43);
+$secondaryColor: rgb(197, 129, 36);
+$thirdColor: rgb(180, 116, 39);
+$textColor: rgb(132, 76, 60);
+$whiteColor: rgb(255, 255, 255);
+$bodyColor: rgb(242, 242, 242);
+$footerColor: rgb(92, 36, 32);
+$featureTitle: rgb(120, 23, 23);
+$featureColumn: rgb(217, 198, 166);
+$featureMiddleColumn: rgb(196, 161, 122);
+
+@mixin customButton($bg_color, $border_color, $text_color, $hover_color, $hover_bg_color, $hover_border_color) {
+    border-radius: 30px !important;
+    background-color: $bg_color !important;
+    border-color: $border_color !important;
+    color: $text_color !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    padding: .5rem 2.25rem !important;
+    text-transform: uppercase !important;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &:hover {
+        color: $hover_color !important;
+        background-color: $hover_bg_color !important;
+        border-color: $hover_border_color !important;
+    }
+}
+
+@mixin flexDiv() {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+@mixin flexStartDiv() {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+}
+
+@media (min-width: 1300px) {
+    .container {
+        max-width: 1140px !important;
+    }
+}

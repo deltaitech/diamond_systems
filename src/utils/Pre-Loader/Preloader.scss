@@ -1,0 +1,24 @@
+@use '../Styles/global' as *;
+
+.preloader {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .image {
+        width:20vw;
+        height: 15vh;
+
+    }
+}
+
+@media only screen and (max-width: 900px) { 
+    .preloader {
+        .image {
+            width:75vw;
+        }
+    }
+}

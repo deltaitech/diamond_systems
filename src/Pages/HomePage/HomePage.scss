@@ -1,0 +1,8 @@
+@use "../../utils/Styles/global" as *;
+
+.SliderFeature {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: 87dvh;
+    width: 100%;
+}

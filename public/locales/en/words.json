@@ -1,0 +1,77 @@
+{
+    "site_title": "Cherry Wood",
+    "read_more": "Read more",
+    "show_more": "Show more...",
+    "recent_works": "Recent Works",
+    "services": "Services",
+    "our_clients": "Clients we are proud of",
+    "latest_news": "Latest News",
+    "subscribe_newsletter": "Subscribe in Our Newsletter",
+    "address" :"Address",
+    "email":"Email",
+    "phone":"Phone",
+    "social":"Social Media",
+    "our_services":"Our Services",
+    "copyrights": {
+        "developed": "Designed & Developed by ",
+        "company": "Marwan Group for information technology"
+    },
+    "navbar": {
+        "site_title": "Cherry Wood",
+        "home": "Home",
+        "about": "About us",
+        "services": "Services",
+        "works": "Works",
+        "contact": "Contact Us",
+        "profile": "Download Profile"
+    },
+    "footer": {
+        "our_services": "Our Services",
+        "contact_us": "Contact us"
+    },
+    "form": {
+        "placeholders": {
+            "name": "Please Enter Full Name",
+            "phone": "Please Enter Phone Number",
+            "message": "Please Enter Your Message"
+        },
+        "name": "Name",
+        "company": "Company",
+        "email": "Enter Email",
+        "subject": "Subject",
+        "phone": "Phone Number",
+        "message": "Your Message",
+        "send": "SEND MESSAGE",
+        "newsletter_send": "Send",
+        "sending": "Sending..."
+    },
+    "validation": {
+        "something_went_wrong": "Something went wrong ... please ty again later",
+        "required": "This field is required",
+        "minimum_characters": "minimum {{number}} characters",
+        "maximum_characters": "maximum {{number}} characters",
+        "mail_format": "Invalid email format",
+        "out_of_characters": "out of {{number}} characters",
+        "invalid_phone": "Invalid phone number",
+        "file": {
+            "size": "File size is too large",
+            "type": "Unsupported file type",
+            "required": "File is required"
+        },
+        "email": "Must be a valid email address",
+        "format": "Invalid phone number format",
+        "message": {
+            "length": "out of {{ max }} characters",
+            "api_error": "Error occurred during contact ... please try again later"
+        }
+    },
+    "errors": {
+        "404": "Oops! How did you get here!",
+        "default": "Something went wrong ... please try again later",
+        "noData": "no {{title}} available right now",
+        "back_home": "Back to home page",
+        "codes": {
+            "404": "Error 404"
+        }
+    }
+}

@@ -1,0 +1,64 @@
+@use "../../utils/Styles/global" as *;
+
+.featureContainer {
+    inset-inline: 0;
+    margin: 0 auto !important;
+    width: 100%;
+   
+
+    .featureSwiper {
+        // overflow: visible;
+
+        .swiper-slide {
+            background-color: $featureColumn !important;
+            height: fit-content;
+            overflow: hidden;
+
+            &.swiper-slide-next {
+                // position: relative;
+                background-color: $featureMiddleColumn !important;
+                background-color: $featureMiddleColumn;
+                color: $primaryColor !important;
+                z-index: 99;
+                // height: 16rem;
+                // inset-block: -2rem;
+
+                .featureDetails {
+                    .featureTitle {
+                        color: $featureTitle;
+                    }
+
+                    .featureDescription {
+                        color: $primaryColor ;
+                    }
+                }
+            }
+
+            .featureDetails {
+                height: 13rem;
+                padding: 3rem;
+                line-height: 1.5;
+
+                .featureIcon {
+                    font-size: 1.8rem;
+                    color: $whiteColor !important;
+                    margin-block-end: 0.8rem;
+                    opacity: 1 !important;
+                }
+
+                .featureTitle {
+                    color: $featureTitle !important;
+                    font-weight: 700;
+                }
+
+                .featureDescription {
+                    color: $primaryColor !important;
+                }
+            }
+        }
+
+        .swiper-pagination-bullet-active {
+            background: $primaryColor !important;
+        }
+    }
+}

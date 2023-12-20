@@ -1,0 +1,104 @@
+@use "./utils/Styles/global" as *;
+
+@font-face {
+  font-family: 'AvenirLTStd';
+  src: url("../src/assets/fonts/AvenirLTStd-Roman.otf");
+}
+
+@font-face {
+  font-family: 'NotoKufiArabic';
+  src: url("../src/assets/fonts/NotoKufiArabic-Regular.ttf");
+}
+
+
+// USAGE
+:root {
+  --primaryColor: rgb(123, 80, 43);
+  --whiteColor: rgb(255, 255, 255);
+  --bodyColor:rgb(242, 242, 242);
+}
+
+body {
+  font-family: "AvenirLTStd" !important;
+  font-weight: 400 !important;
+  overflow-x: hidden;
+  background-color: var(--bodyColor) !important;
+
+  &:lang(ar) {
+    font-family: 'NotoKufiArabic' !important;
+  }
+}
+
+
+// Scrollbar
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: $secondaryColor;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primaryColor;
+  border-radius: 1rem;
+}
+
+.main_template {
+  min-height: 80vh;
+
+}
+
+.text-limit {
+
+  &,
+  * {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: var(--lines) !important;
+    line-clamp: var(--lines) !important;
+    -webkit-box-orient: vertical !important;
+  }
+
+}
+
+// Lightbox
+.yarl__fullscreen {
+
+  .yarl__toolbar,
+  .yarl__thumbnails_track {
+    button {
+      padding: 0.4rem !important;
+      border-radius: 5px !important;
+      margin-inline: 0.5rem !important;
+    }
+  }
+
+  .yarl__navigation_next,
+  .yarl__navigation_prev {
+    padding: 0.5rem !important;
+    border-radius: 5px !important;
+    margin-inline: 0.5rem !important;
+  }
+
+}
+
+// Form
+.form-control:focus {
+  border-color: rgba($primaryColor, 0.6) !important;
+  box-shadow: 0 0 0 .25rem rgba($primaryColor, .25) !important;
+}
+
+@media (max-width:700px) {
+  #root {
+    overflow-x: hidden;
+  }
+}
+
+@media (min-width: 2000px) {
+  .container {
+    max-width: 1300px !important;
+  }
+}

@@ -1,0 +1,36 @@
+@use './../Styles/global' as *;
+
+.not_found_page {
+    @include flexDiv();
+    flex-direction: column;
+    transform: translate(0%, 50%);
+
+    .notFoundImage {
+        width: 30rem;
+        height: 10rem;
+    }
+
+    .notFoundData{
+        @include flexDiv();
+        flex-direction: column;
+        .notFoundText {
+            color: $textColor;
+            font-size: clamp(1.2rem, 2vw, 3rem);
+        }
+        .backBtn{
+           @include customButton($secondaryColor, $secondaryColor, $whiteColor, $whiteColor, $primaryColor, $primaryColor)
+        }
+    }
+    
+
+}
+
+/** Mobile **/
+@media only screen and (max-width: 768px) {
+    .not_found_page {
+        .notFoundImage {
+            width: 18rem;
+            height: 8rem;
+        }
+    }
+}

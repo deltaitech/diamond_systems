@@ -1,0 +1,27 @@
+@use "../../utils/Styles/global" as *;
+
+.contactForm {
+    overflow: hidden;
+    background-color: rgba($textColor, 0.1);
+    padding: 1.5rem;
+    width: 100% !important;
+
+    label {
+        color: $primaryColor;
+    }
+
+    .contact_btn {
+        background-color: $secondaryColor;
+        color: $whiteColor;
+        width: 50%;
+
+        &:focus{
+            background-color: $secondaryColor;
+            color: $whiteColor;
+        }
+
+        &:hover {
+            background-color: $primaryColor;
+        }
+    }
+}

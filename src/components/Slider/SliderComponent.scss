@@ -1,0 +1,83 @@
+@use "../../utils/Styles/global" as *;
+
+#generalSliderSection {
+    padding-block-start: 4rem;
+    padding-block-end: 4rem;
+    background-color: $whiteColor;
+
+
+    .sectionTitle {
+        position: relative;
+        text-align: center;
+        color: $primaryColor;
+        margin-block-end: 3rem;
+        font-size: clamp(1rem, 5vw, 2.5rem);
+        font-weight: 600;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 10vw;
+            height: 2px;
+            background-color: $secondaryColor;
+            inset-block-start: 130%;
+            inset-inline: 44%;
+        }
+    }
+
+    .generalSliderSectionSwiper {
+        position: relative;
+        width: 100vw;
+        height: 10rem !important;
+
+        .swiper-wrapper {
+            // @include flexDiv();
+
+            .swiper-slide {
+                text-align: center;
+                font-size: 12px;
+                background-image: none !important;
+
+                /* Center slide text vertically */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background-color: unset !important;
+                    inset: 0;
+                }
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    background-image: none !important;
+                    z-index: 99;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            color: $textColor;
+
+            &:hover {
+                color: $secondaryColor;
+            }
+        }
+
+        .swiper-pagination-bullet-active {
+            background: $primaryColor !important;
+        }
+
+    }
+
+}

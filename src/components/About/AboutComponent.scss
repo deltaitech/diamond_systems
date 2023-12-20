@@ -1,0 +1,111 @@
+@use './../../utils/Styles/global' as *;
+
+.aboutSection {
+    padding-block-end: 7rem;
+    background-color: $whiteColor;
+    overflow: hidden;
+
+    .aboutImg {
+        position: relative;
+        overflow: hidden;
+
+        img {
+            position: relative;
+            width: 100% !important;
+            z-index: 99;
+        }
+    }
+
+    .aboutDescription {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        .aboutTitle {
+            @include flexStartDiv();
+
+            margin-block-end: 2rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: $primaryColor !important;
+            text-align: justify;
+        }
+
+        p {
+            color: $secondaryColor !important;
+            text-align: justify !important;
+        }
+
+        ul {
+            position: relative;
+            color: $textColor;
+
+            li {
+                font-size: 0.9rem;
+                list-style-type: none;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+
+                &::before {
+                    content: '\f061';
+                    font-family: "Font Awesome 5 Free";
+                    position: absolute;
+                    inset-inline-start: 0.3rem;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    transition: color ease-in-out 0.4s;
+                }
+
+                &:lang('ar') {
+                    &::before {
+
+                        content: '\f060' !important;
+                    }
+                }
+
+                &:hover {
+                    &::before {
+                        color: $secondaryColor;
+                    }
+                }
+            }
+        }
+
+        button {
+            width: fit-content;
+            @include customButton($secondaryColor, $secondaryColor, $whiteColor, $whiteColor, $primaryColor, $primaryColor);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .aboutSection {
+        padding-block-end: 3rem;
+        .aboutImg {
+            position: relative;
+
+            img {
+                height: 21rem !important;
+                position: relative;
+                z-index: 99;
+            }
+
+        }
+
+        .aboutDescription {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            margin-block: 1rem;
+
+        }
+    }
+}

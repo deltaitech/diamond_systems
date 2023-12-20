@@ -1,0 +1,191 @@
+@use "../../utils/Styles/global" as *;
+
+// navbar style start
+.navbar {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: rgba($whiteColor,0.85) !important;
+
+  &:lang('ar') {
+    font-size: 14px;
+  }
+}
+
+.navbar-nav {
+  .nav-link {
+    color: $primaryColor;
+    padding: 1rem 0.7rem !important;
+    border-radius: 40px;
+    transition: background-color ease-in-out 0.3ms;
+    font-size: 1rem;
+
+    &:lang('en') {
+      font-size: clamp(0.7rem, 0.6vw, 1rem);
+    }
+
+    &:hover {
+      color: $secondaryColor !important;
+    }
+
+    &:target {
+      color: $secondaryColor !important;
+    }
+
+    &:focus,
+    &:focus-within {
+      color: $secondaryColor !important;
+    }
+
+  }
+
+
+  .nav-link.active {
+    color: $secondaryColor !important;
+    min-width: 5rem;
+    min-height: 2rem;
+    // text-align: center !important;
+  }
+
+  .nav-link.show {
+    color: $whiteColor !important;
+  }
+
+  .nav-link:focus-visible {
+    box-shadow: none;
+  }
+}
+
+// navbar style end
+
+// toggler style start
+.offcanvas {
+  background-color: rgba($whiteColor,0.85) !important;
+
+  .btn-close {
+    // filter: invert(100) brightness(100%) contrast(100%);
+
+    &:focus {
+      box-shadow: none !important;
+
+    }
+  }
+}
+
+.navbar-toggler {
+  border: none !important;
+  width: 3.4rem;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+
+  &:hover {
+    .navbar-toggler-icon {
+      background-color: $secondaryColor;
+
+      &::before {
+        width: 100%;
+        background-color: $secondaryColor;
+      }
+
+      &::after {
+        width: 100%;
+        background-color: $secondaryColor;
+      }
+    }
+  }
+}
+
+.navbar-toggler-icon {
+  background-image: none !important;
+  height: 0.1rem !important;
+  background-color: $primaryColor;
+  position: relative;
+  transition: width ease-in-out 0.4s;
+  width: 100% !important;
+
+  &::before {
+    position: absolute;
+    content: "";
+    background-color: $primaryColor;
+    height: inherit;
+    inset-inline-end: 0;
+    top: -8px;
+    width: 50%;
+    transition: width ease-in-out 0.3s;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    background-color: $primaryColor;
+    height: inherit;
+    inset-inline-end: 0;
+    top: 8px;
+    width: 75%;
+    transition: width ease-in-out 0.3s;
+  }
+}
+
+.offcanvas.show {
+  &:not(.hiding) {
+    background-color: $secondaryColor;
+    color: $primaryColor;
+  }
+}
+
+// toggler style end
+
+// mobile style start
+
+@media only screen and (max-width: 1024px) {
+  .navbar {
+    .navbar-nav {
+      .nav-link.active {
+        min-width: unset !important;
+        border-radius: 20 !important;
+      }
+
+      font-size: 1rem !important;
+    }
+
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    .navbar-brand{
+      img{
+        width: 18rem !important;
+      }
+    }
+  }
+  .offcanvas {
+    max-width: 16rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    .navbar-brand{
+      img{
+        width: 16rem !important;
+      }
+    }
+  }
+  .offcanvas {
+    img{
+      max-width: 15rem;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .offcanvas {
+    max-width: 80% !important;
+  }
+}
+
+// mobile style start
