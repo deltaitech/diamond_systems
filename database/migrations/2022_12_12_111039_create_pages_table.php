@@ -19,6 +19,7 @@ class CreatePagesTable extends Migration
             $table->string('link')->nullable();
             $table->string('video')->nullable();
             $table->boolean('has_link')->default(0)->nullable();
+            $table->boolean('has_title')->default(0)->nullable();
             $table->boolean('has_sub_title')->default(0)->nullable();
             $table->boolean('has_description')->default(0)->nullable();
             $table->boolean('has_image')->default(0)->nullable();
