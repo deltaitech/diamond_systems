@@ -43,7 +43,7 @@
                 @foreach (config('translatable.locales') as $key => $locale)
                     <div class="tab-pane fade show @if ($key == 0) active @endif" id="{{ $locale }}"
                         role="tabpanel">
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col-md-6">
                                 <div class="mb-7 bg-light p-5 rounded h-100">
                                     <div class="card-title">
@@ -110,20 +110,12 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-8">
-                        <a href="{{ $feature->image }}" data-toggle="lightbox" data-title="{{ $feature->title }}"
-                            data-gallery="gallery">
-                            <img src="{{ $feature->image }}" class="img-fluid mb-2 image-galley"
-                                onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="feature image" />
-                        </a>
-                    </div>
-
                     <div class="col-md-4">
                         <div class="mb-7 bg-light p-5 rounded h-100">
                             <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.icon') }}:</h5>
                             </div>
-                            <i class="{{ $feature->icon }} fa-lg"></i>
+                            <i class="{{ $feature->icon }}" style="font-size:40px"></i>
                         </div>
                     </div>
                 </div>
