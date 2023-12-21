@@ -38,6 +38,10 @@ const HomePage = () => {
     (page) => page.identifier === "first_separator"
   );
 
+  const home_second_separator = pages.find(
+    (page) => page.identifier === "second_separator"
+  );
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -82,14 +86,27 @@ const HomePage = () => {
         {/* Counters */}
         <CounterComponent counters={counters} />
 
+        {/* Second Separator */}
+        <SeparatorComponent
+          data={home_second_separator}
+          direction={
+            LanguageDirection(lang ?? defaultLang) === "rtl"
+              ? "to left"
+              : "to right"
+          }
+          bgFirstColor="rgba(var(--primaryColor), 0.4)20%"
+          bgSecondColor="rgba(var(--primaryColor), 0.5) 60%"
+          hasLink={false}
+        />
+
         {/* Services */}
-        {/* <ItemsComponent
+        <ItemsComponent
           items={services}
           name={"services"}
           hasShowMore={true}
           hasSectionTitle={true}
           sectionTitle={t("words:our_services")}
-        /> */}
+        />
 
         {/* Clients */}
         <SliderComponent data={clients} numbers={4} space={50} />
