@@ -53,10 +53,10 @@ const MainSliderComponent = ({ sliders, socials }) => {
           direction="horizontal"
           spaceBetween={0}
           centeredSlides={true}
-          // autoplay={{
-          //   delay: 5000,
-          //   disableOnInteraction: true,
-          // }}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: true,
+          }}
           loop={true}
           effect={"fade"}
           pagination={false}
@@ -94,8 +94,8 @@ const MainSliderComponent = ({ sliders, socials }) => {
                     ></div>
                     <CustomButton
                       link={isMultiLang ? `/${lang}/services` : `/services`}
-                      linkTitle={t('show_more')}
-                      className={'sliderData-btn'}
+                      linkTitle={t("show_more")}
+                      className={"sliderData-btn"}
                     />
                   </Row>
                 </Container>
