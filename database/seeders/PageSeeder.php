@@ -41,7 +41,7 @@ class PageSeeder extends Seeder
         ]);
 
         $first_separator->file()->create([
-            "path" => "seeders/pages/first_separator.webp",
+            "path" => "seeders/pages/first_separator.jpg",
             "type" => "image",
         ]);
 
