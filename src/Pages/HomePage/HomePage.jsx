@@ -34,7 +34,6 @@ const HomePage = () => {
   // Destructure data from servicesData
   const { services } = servicesData.data;
 
-  const counterPage = pages.find((page) => page.identifier === "counter_page");
   const home_first_separator = pages.find(
     (page) => page.identifier === "first_separator"
   );
@@ -63,8 +62,10 @@ const HomePage = () => {
           className="mb-5"
         />
 
+        {/* Features */}
         <FeaturesComponent />
 
+        {/* First Separator */}
         <SeparatorComponent
           data={home_first_separator}
           link="contact"
@@ -78,6 +79,9 @@ const HomePage = () => {
           hasLink={true}
         />
 
+        {/* Counters */}
+        <CounterComponent counters={counters} />
+
         {/* Services */}
         {/* <ItemsComponent
           items={services}
@@ -86,9 +90,6 @@ const HomePage = () => {
           hasSectionTitle={true}
           sectionTitle={t("words:our_services")}
         /> */}
-
-        {/* Counters */}
-        <CounterComponent counterPage={counterPage} counters={counters} />
 
         {/* Clients */}
         <SliderComponent data={clients} numbers={4} space={50} />

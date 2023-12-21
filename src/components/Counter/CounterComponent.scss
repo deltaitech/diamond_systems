@@ -3,41 +3,24 @@
 .counterSection {
     padding-block: 7.5rem;
     position: relative;
-    // background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to top, rgba($textColor, 0.5), rgba($textColor, 0.5));
-    }
+    background-color: $whiteColor;
 
     .counterContainer {
         overflow: hidden;
 
-        .counterDescription {
-            @include flexDiv();
-            color: $whiteColor;
-            text-align: justify;
-            font-size: 1.2rem;
-        }
-
         .counterColumn {
-            @include flexDiv();
-            flex-direction: column;
-
+           
+            .countingIcon {
+                font-size: 2rem;
+                color: $secondaryColor;
+            }
             .countingNumber {
-                font-size: 6rem;
-                color: $whiteColor;
+                font-size: 3rem;
+                color: $thirdColor;
             }
 
             .counterTitle {
-                color: $whiteColor;
+                color: $primaryColor;
             }
         }
 
