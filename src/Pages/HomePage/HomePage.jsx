@@ -106,6 +106,7 @@ const HomePage = () => {
           hasShowMore={true}
           hasSectionTitle={true}
           sectionTitle={t("words:our_services")}
+          hasSinglePage={true}
         />
 
         {/* Clients */}
