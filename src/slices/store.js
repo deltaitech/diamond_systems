@@ -10,7 +10,7 @@ export const store = configureStore({
     [servicesApi.reducerPath]: servicesApi.reducer,
     [settingsApi.reducerPath]: settingsApi.reducer,
   },
-  devTools: true,
+  devTools: false,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat([
       settingsApi.middleware,

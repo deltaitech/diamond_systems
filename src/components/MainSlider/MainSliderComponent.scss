@@ -3,30 +3,40 @@
 .mainSlider {
     width: 100%;
     position: relative;
-   
 
-    .swiper {
+
+    >.swiper {
         position: relative;
         width: 100dvw;
         height: 100dvh;
-        overflow: visible !important;
 
         .swiper-slide {
+            position: relative;
             text-align: center;
             font-size: 18px;
-            // background: linear-gradient(to left, rgba($primaryColor, 0.2), rgba($primaryColor, 0.2));
+            background: linear-gradient(to left, rgba($primaryColor, 0.2), rgba($primaryColor, 0.2));
             background-position: center;
             background-size: cover;
 
             /* Center slide text vertically */
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
 
             img {
                 display: block;
                 width: 100%;
                 height: 100dvh;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.4);
+                width: 100%;
+                height: 100%;
             }
         }
 
@@ -49,32 +59,35 @@
                 background-color: $primaryColor;
             }
         }
+
         .swiper-pagination {
             position: absolute;
             inset-inline-start: 3rem;
         }
 
-        .sliderSocialContainer{
+        .SliderData {
             position: absolute;
-            inset-block-start: 45%;
-            inset-inline-end: 4%;
-            width: max-content;
-            height: max-content;
-            .sliderSocial{
-                display: flex;
-                flex-direction: column;
-                margin-block-end: 1rem;
-                a{
-                    text-decoration: none;
+            width: 80% !important;
+            inset-inline-start: 12%;
+
+            .SliderDataRow {
+                text-align: justify;
+
+                .sliderData-title,
+                .sliderData-description {
                     color: $whiteColor;
-                    scale: 1;
-                    transition: scale ease-in-out 0.4s;
-                    &:hover{
-                        color: $primaryColor;
-                        scale: 1.3;
-                    }
+                }
+
+                .sliderData-description {
+                    font-size: 1rem;
+                }
+
+                .sliderData-btn {
+                    width: fit-content;
+                    @include customButton(transparent, $whiteColor, $whiteColor, $whiteColor, $secondaryColor, $secondaryColor);
                 }
             }
+
         }
 
     }

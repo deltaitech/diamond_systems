@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Image } from "react-bootstrap";
+import { Container, Image, Row } from "react-bootstrap";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,17 +10,18 @@ import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import { Link, useParams } from "react-router-dom";
 import {
   FormatNumber,
+  LanguageDirection,
   defaultLang,
   isMultiLang,
 } from "../../utils/Helpers/General";
 import { useTranslation } from "react-i18next";
-import FeaturesComponent from "./../Features/FeaturesComponent";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import "./MainSliderComponent.scss";
+import CustomButton from "../UI/CustomButton/CustomButton";
 
 const MainSliderComponent = ({ sliders, socials }) => {
   // main
@@ -52,10 +53,10 @@ const MainSliderComponent = ({ sliders, socials }) => {
           direction="horizontal"
           spaceBetween={0}
           centeredSlides={true}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: true,
-          }}
+          // autoplay={{
+          //   delay: 5000,
+          //   disableOnInteraction: true,
+          // }}
           loop={true}
           effect={"fade"}
           pagination={false}
@@ -77,14 +78,27 @@ const MainSliderComponent = ({ sliders, socials }) => {
                   }}
                 />
               }
-              <div className="sliderSocialContainer">
-                {socials.map((social, index) => (
-                  <div className="sliderSocial" key={index}>
-                    <Link target="_blank" to={social.contact}>
-                      <i className={social.icon}></i>
-                    </Link>
-                  </div>
-                ))}
+              <div className="SliderData">
+                <Container
+                  dir={
+                    LanguageDirection(lang ?? defaultLang) === "rtl"
+                      ? "yes"
+                      : "no"
+                  }
+                >
+                  <Row className="SliderDataRow">
+                    <h1 className="sliderData-title">{slider.title}</h1>
+                    <div
+                      className="sliderData-description"
+                      dangerouslySetInnerHTML={{ __html: slider.description }}
+                    ></div>
+                    <CustomButton
+                      link={isMultiLang ? `/${lang}/services` : `/services`}
+                      linkTitle={t('show_more')}
+                      className={'sliderData-btn'}
+                    />
+                  </Row>
+                </Container>
               </div>
             </SwiperSlide>
           ))}
