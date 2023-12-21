@@ -1,0 +1,16 @@
+@use './../../../utils/Styles/global' as *;
+
+.PageTitle {
+    @include flexDiv();
+    flex-direction: column;
+    margin-block-end: 3rem;
+    text-align: center;
+
+    .title {
+        color: $secondaryColor;
+    }
+
+    .sub_title {
+        color: $primaryColor;
+    }
+}

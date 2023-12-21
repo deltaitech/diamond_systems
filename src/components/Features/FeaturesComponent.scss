@@ -1,64 +1,74 @@
 @use "../../utils/Styles/global" as *;
 
-.featureContainer {
-    inset-inline: 0;
-    margin: 0 auto !important;
-    width: 100%;
-   
+.featureSection {
+    background-color: $bodyColor;
 
-    .featureSwiper {
-        // overflow: visible;
+    .featureContainer {
+        margin-block: 1rem;
+        padding-block: 3rem;
 
-        .swiper-slide {
-            background-color: $featureColumn !important;
-            height: fit-content;
-            overflow: hidden;
+        .featureRow {
+            overflow: clip;
+            padding: 1rem;
 
-            &.swiper-slide-next {
-                // position: relative;
-                background-color: $featureMiddleColumn !important;
-                background-color: $featureMiddleColumn;
-                color: $primaryColor !important;
-                z-index: 99;
-                // height: 16rem;
-                // inset-block: -2rem;
-
-                .featureDetails {
-                    .featureTitle {
-                        color: $featureTitle;
-                    }
-
-                    .featureDescription {
-                        color: $primaryColor ;
-                    }
-                }
-            }
-
-            .featureDetails {
-                height: 13rem;
-                padding: 3rem;
-                line-height: 1.5;
+            .featureCard {
+                text-align: center;
+                padding: 1.5rem;
+                border: 1px solid $whiteColor;
+                border-radius: 0.7rem;
+                background-color: $whiteColor;
+                scale: 1;
+                transition: scale ease-in-out 0.4s;
 
                 .featureIcon {
-                    font-size: 1.8rem;
-                    color: $whiteColor !important;
-                    margin-block-end: 0.8rem;
-                    opacity: 1 !important;
+                    font-size: 2rem;
+                    color: $secondaryColor;
+                    margin-block-end: 1rem;
                 }
 
                 .featureTitle {
-                    color: $featureTitle !important;
-                    font-weight: 700;
+                    color: $primaryColor;
+                    margin-block-end: 1rem;
                 }
 
                 .featureDescription {
-                    color: $primaryColor !important;
+                    font-size: 0.8rem;
+                }
+
+                &:hover {
+                    background-color: $featureColumn;
+                    // scale: 1.06;
+                    // animation: rotateCard 0.6s linear;
+                    // animation-fill-mode: forwards;
+                    // transition: all 0.3s ease-in-out 0s;
+
+                    .featureIcon {
+                        color: $primaryColor;
+                    }
+
+                    .featureTitle {
+                        color: $primaryColor;
+                    }
+
+                    .featureDescription {
+                        color: $thirdColor;
+                    }
+
+                    @keyframes rotateCard {
+                        0% {
+                            transform: rotateX(0deg);
+                        }
+
+                        50% {
+                            transform: rotateX(180deg);
+                        }
+
+                        100% {
+                            transform: rotateX(360deg);
+                        }
+                    }
                 }
             }
-        }
-
-        .swiper-pagination-bullet-active {
-            background: $primaryColor !important;
         }
     }
 }

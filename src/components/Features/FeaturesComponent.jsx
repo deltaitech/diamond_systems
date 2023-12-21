@@ -1,20 +1,14 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { LanguageDirection, defaultLang } from "../../utils/Helpers/General";
-
 import { Col, Container, Row } from "react-bootstrap";
+import { Fade } from "react-awesome-reveal";
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// import required modules
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { useGetHomeDataQuery } from "../../slices/home-slice";
 
 import "./FeaturesComponent.scss";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import PageTitleComponent from "../UI/PageTitle/PageTitleComponent";
 
 const FeaturesComponent = () => {
   const { t, i18n } = useTranslation();
@@ -24,68 +18,43 @@ const FeaturesComponent = () => {
     i18n.changeLanguage(lang ?? defaultLang);
   }, [lang]);
 
-  const { features } = useSelector((state) => state.home);
+  const { data: homeData } = useGetHomeDataQuery();
+  // Destructure data from homeData
+  const { features } = homeData.data;
+
   return (
-    <>
-      <Container className="featureContainer">
-        <Row className="featureRow">
-          <Swiper
-            // autoplay={{
-            //   delay: 3000,
-            //   disableOnInteraction: false,
-            //   pauseOnMouseEnter: true,
-            // }}
-            loop={true}
-            navigation={false}
-            pagination={{
-              dynamicBullets: true,
-              clickable: true,
-            }}
-            grabCursor={true}
-            slidesPerView={1}
-            spaceBetween={50}
-            dir={
-              LanguageDirection(lang ?? defaultLang) === "rtl" ? "rtl" : "ltr"
-            }
-            breakpoints={{
-              640: {
-                slidesPerView: 1,
-                spaceBetween: 50,
-              },
-              768: {
-                slidesPerView: 3,
-                spaceBetween: 0,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 0,
-              },
-            }}
-            modules={[Autoplay, Navigation, Pagination]}
-            className="featureSwiper"
-          >
-            {features.map((feature, index) => (
-              <SwiperSlide key={index}>
-                <div className="featureDetails text-center">
-                  <i className={`${feature.icon} featureIcon`}></i>
-                  <h5 className="featureTitle">{feature.title}</h5>
-                  <div
-                    className="featureDescription text-limit"
-                    style={{ "--lines": 2 }}
-                    dangerouslySetInnerHTML={{ __html: feature.description }}
-                  ></div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+    <section className="featureSection">
+      <Container
+        className="featureContainer"
+        dir={LanguageDirection(lang ?? defaultLang)}
+      >
+        {/* Page title */}
+        <PageTitleComponent identifier={"feature_page"} />
+
+        <Row xs={1} sm={1} md={3} lg={3} className="featureRow g-4">
+          {features.map((feature, index) => (
+            <Fade
+              cascade
+              damping={0.1}
+              delay={index * 110}
+              direction="down"
+              key={index}
+              className="d-flex flex-grow-4"
+            >
+              <Col className="featureCard">
+                <i className={`${feature.icon} featureIcon`}></i>
+                <h5 className="featureTitle">{feature.title}</h5>
+                <div
+                  dangerouslySetInnerHTML={{ __html: feature.description }}
+                  className="featureDescription text-limit"
+                  style={{ "--lines": 2 }}
+                ></div>
+              </Col>
+            </Fade>
+          ))}
         </Row>
       </Container>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-    </>
+    </section>
   );
 };
 

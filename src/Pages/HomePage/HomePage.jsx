@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
 import HelmetComponent from "../../utils/Helmet/HelmetComponent";
 import { LanguageDirection, defaultLang } from "../../utils/Helpers/General";
 
@@ -9,7 +8,6 @@ import { useGetSettingsQuery } from "../../slices/settings-slice";
 import { useGetHomeDataQuery } from "../../slices/home-slice";
 import { useGetAllServicesQuery } from "../../slices/services-slice";
 
-import AboutComponent from "../../components/About/AboutComponent";
 import MainSliderComponent from "../../components/MainSlider/MainSliderComponent";
 import CounterComponent from "../../components/Counter/CounterComponent";
 import SliderComponent from "../../components/Slider/SliderComponent";
@@ -22,7 +20,7 @@ const HomePage = () => {
   const { t, i18n } = useTranslation();
   const { lang } = useParams();
 
-  // Settings RTK query
+  // RTK Query
   const { data: settingsData } = useGetSettingsQuery();
 
   const { data: homeData } = useGetHomeDataQuery();
@@ -61,19 +59,16 @@ const HomePage = () => {
           className="mb-5"
         />
 
-        <div className="SliderFeature">
-          {/* Features */}
-          {/* <FeaturesComponent /> */}
-        </div>
+        <FeaturesComponent />
 
         {/* Services */}
-        <ItemsComponent
+        {/* <ItemsComponent
           items={services}
           name={"services"}
           hasShowMore={true}
           hasSectionTitle={true}
           sectionTitle={t("words:our_services")}
-        />
+        /> */}
 
         {/* Counters */}
         <CounterComponent counterPage={counterPage} counters={counters} />
