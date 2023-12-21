@@ -20,14 +20,14 @@ class FeatureSeeder extends Seeder
 
         $description = [
             '<p>تعمل شركة الأنظمة الماسية بأحدث التقنيات لتوفير متطلباتك</p>',
-            '<pتوفر الشركة ضمان شامل على الأجهزة والتقنيات المستخدة</p>',
+            '<p>توفر الشركة ضمان شامل على الأجهزة والتقنيات المستخدة</p>',
             '<p>من خلال شركتنا سنوفر لك الثقة والأمان لراحتك</p>',
         ];
 
         $icon = [
             'fas fa-laptop',
             'fas fa-certificate',
-            'fas fa-user-shield',
+            'fas fa-shield-alt',
         ];
 
         for ($i = 0; $i < count($title); $i++) {
