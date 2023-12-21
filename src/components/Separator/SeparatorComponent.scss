@@ -2,7 +2,7 @@
 
 .separatorSection {
     padding-block: 6rem;
-    // background-attachment:fixed !important;
+    background-attachment: fixed !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     background-size: cover !important;
@@ -13,7 +13,7 @@
         padding: 2rem;
 
         .separatorSubTitle {
-            color: rgba($whiteColor, 0.8);
+            color: rgba($whiteColor, 1);
             font-size: clamp(0.8rem, 2vw, 1rem);
         }
 
@@ -23,11 +23,14 @@
             font-size: clamp(0.5rem, 5vw, 3rem);
         }
 
-        button {
-            width: fit-content;
-            margin-block-start: 2rem;
-            @include customButton($secondaryColor, $secondaryColor, $whiteColor, $whiteColor, $primaryColor, $primaryColor);
-            @include flexStartDiv()
+        a {
+            text-decoration: none;
+
+            .separatorBtn {
+                width: fit-content;
+                margin-block-start: 2rem;
+                @include flexStartDiv();
+            }
         }
     }
 }

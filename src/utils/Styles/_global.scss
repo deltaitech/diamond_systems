@@ -10,6 +10,7 @@ $featureColumn: rgb(217, 198, 166);
 $featureMiddleColumn: rgb(196, 161, 122);
 
 @mixin customButton($bg_color, $border_color, $text_color, $hover_color, $hover_bg_color, $hover_border_color) {
+    position: relative;
     border-radius: 30px !important;
     background-color: $bg_color !important;
     border-color: $border_color !important;

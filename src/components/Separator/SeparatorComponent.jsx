@@ -47,6 +47,7 @@ const SeparatorComponent = ({
                 <CustomButton
                   link={isMultiLang ? `/${lang}/${link}` : `/${link}`}
                   linkTitle={t(`words:navbar.${link}`)}
+                  className={"separatorBtn"}
                 />
               )}
             </Fade>

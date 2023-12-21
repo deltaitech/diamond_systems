@@ -13,16 +13,16 @@
 
 // USAGE
 :root {
-  --primaryColor: rgb(123, 80, 43);
-  --whiteColor: rgb(255, 255, 255);
-  --bodyColor:rgb(242, 242, 242);
+  --primaryColor: 123, 80, 43;
+  --whiteColor: 255, 255, 255;
+  --bodyColor: 242, 242, 242;
 }
 
 body {
   font-family: "AvenirLTStd" !important;
   font-weight: 400 !important;
   overflow-x: hidden;
-  background-color: var(--bodyColor) !important;
+  background-color: rgb(var(--bodyColor)) !important;
 
   &:lang(ar) {
     font-family: 'NotoKufiArabic' !important;

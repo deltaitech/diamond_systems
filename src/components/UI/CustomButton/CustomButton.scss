@@ -1,5 +1,5 @@
 @use "../../../utils/Styles/global" as *;
 
 .customBtn {
-    @include customButton($secondaryColor, $secondaryColor, $whiteColor, $whiteColor, #83a0bb, #83a0bb)
+    @include customButton($secondaryColor, $secondaryColor, $whiteColor, $whiteColor, $primaryColor, $primaryColor);
 }

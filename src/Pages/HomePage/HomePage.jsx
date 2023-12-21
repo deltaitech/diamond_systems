@@ -11,8 +11,9 @@ import { useGetAllServicesQuery } from "../../slices/services-slice";
 import MainSliderComponent from "../../components/MainSlider/MainSliderComponent";
 import CounterComponent from "../../components/Counter/CounterComponent";
 import SliderComponent from "../../components/Slider/SliderComponent";
-import ItemsComponent from "../../components/Items/ItemsComponent";
 import FeaturesComponent from "../../components/Features/FeaturesComponent";
+import SeparatorComponent from "../../components/Separator/SeparatorComponent";
+import ItemsComponent from "../../components/Items/ItemsComponent";
 
 import "./HomePage.scss";
 
@@ -34,6 +35,9 @@ const HomePage = () => {
   const { services } = servicesData.data;
 
   const counterPage = pages.find((page) => page.identifier === "counter_page");
+  const home_first_separator = pages.find(
+    (page) => page.identifier === "first_separator"
+  );
 
   useEffect(() => {
     window.scrollTo({
@@ -60,6 +64,19 @@ const HomePage = () => {
         />
 
         <FeaturesComponent />
+
+        <SeparatorComponent
+          data={home_first_separator}
+          link="contact"
+          direction={
+            LanguageDirection(lang ?? defaultLang) === "rtl"
+              ? "to right"
+              : "to left"
+          }
+          bgFirstColor="rgba(var(--primaryColor), 0.4)20%"
+          bgSecondColor="rgba(var(--primaryColor), 0.5) 60%"
+          hasLink={true}
+        />
 
         {/* Services */}
         {/* <ItemsComponent

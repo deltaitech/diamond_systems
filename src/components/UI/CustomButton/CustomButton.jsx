@@ -15,7 +15,7 @@ const CustomButton = ({
   return (
     <>
       {hasLink ? (
-        <Link to={link} target={target}>
+        <Link to={link} target={target} className="position-relative">
           <Button className={`customBtn btn-sm ${className}`} onClick={onclick}>
             {linkTitle}
           </Button>
