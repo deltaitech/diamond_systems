@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useGetSettingsQuery } from "../../../slices/settings-slice";
 import { Link, useParams } from "react-router-dom";
 import { LanguageDirection, defaultLang } from "../../../utils/Helpers/General";
 
@@ -7,11 +8,12 @@ import "./WhatsappComponent.scss";
 
 const WhatsappComponent = () => {
   const { lang } = useParams();
-  const { data } = useSelector((state) => state.settings);
-  const number = data.contacts?.whatsapp?.map((number) => number.contact);
+  // const { data } = useSelector((state) => state.settings);
+  const { data } = useGetSettingsQuery();
+  const number = data.data.contacts?.whatsapp?.map((number) => number.contact);
 
   return (
-    data.contacts?.whatsapp.length > 0 && (
+    data.data.contacts?.whatsapp.length > 0 && (
       <div
         className="phone-call cbh-phone cbh-green cbh-show  cbh-static"
         id="clbh_phone_div"

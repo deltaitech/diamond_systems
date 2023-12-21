@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { useTranslation } from "react-i18next";
 
-import { fetchHomeData } from "../../../slices/home-slice";
-import { fetchSettingsData } from "../../../slices/settings-slice";
-import { fetchServicesData } from "../../../slices/services-slice";
+import { useGetHomeDataQuery } from "../../../slices/home-slice";
+import { useGetSettingsQuery } from "../../../slices/settings-slice";
+import { useGetAllServicesQuery } from "../../../slices/services-slice";
 
 import PreLoader from "../../../utils/Pre-Loader/PreLoader";
 import HelmetComponent from "../../../utils/Helmet/HelmetComponent";
@@ -23,7 +22,6 @@ import ScrollToTopComponent from "../ScrollToTop/ScrollToTopComponent";
 const TemplateComponent = ({ children }) => {
   const { lang } = useParams();
   const { i18n } = useTranslation();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -41,21 +39,21 @@ const TemplateComponent = ({ children }) => {
     i18n.changeLanguage(lang ?? defaultLang);
   }, [lang]);
 
-  useEffect(() => {
-    dispatch(fetchHomeData(lang ?? defaultLang));
-    dispatch(
-      fetchServicesData({ lang: lang ?? defaultLang, searchParams: {} })
-    );
-    dispatch(fetchSettingsData(lang ?? defaultLang));
-  }, [lang]);
+  // Settings RTK query
+  const { isLoading: settingsLoading, isError: settingsError } =
+    useGetSettingsQuery();
 
-  const { isHomeDataLoading } = useSelector((state) => state.home);
-  const { isServiceDataLoading } = useSelector((state) => state.services);
-  const { isSettingsDataLoading } = useSelector((state) => state.settings);
+  const { isLoading: homeLoading, isError: homeError } = useGetHomeDataQuery();
 
-  return isHomeDataLoading !== "fulfilled" ||
-    isServiceDataLoading !== "fulfilled" ||
-    isSettingsDataLoading !== "fulfilled" ? (
+  const { isLoading: servicesLoading, isError: servicesError } =
+    useGetAllServicesQuery();
+
+  return homeLoading ||
+    homeError ||
+    servicesLoading ||
+    servicesError ||
+    settingsLoading ||
+    settingsError ? (
     <PreLoader />
   ) : (
     <>
@@ -63,7 +61,7 @@ const TemplateComponent = ({ children }) => {
       <NavbarComponent />
       <main className="main_template">{children}</main>
       <ScrollToTopComponent />
-      <FooterComponent />
+      {/* <FooterComponent /> */}
       <WhatsappComponent />
       <ToastContainer
         position="top-right"

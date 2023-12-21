@@ -4,24 +4,23 @@ import { useParams } from "react-router-dom";
 import { LanguageDirection, defaultLang } from "../../utils/Helpers/General";
 import HelmetComponent from "../../utils/Helmet/HelmetComponent";
 
+import { useGetAllServicesQuery } from "../../slices/services-slice";
+import { useGetSettingsQuery } from "../../slices/settings-slice";
+
 import BreadcrumbComponent from "../../components/UI/Breadcrumb/BreadcrumbComponent";
 import ItemsComponent from "../../components/Items/ItemsComponent";
-import { useSelector } from "react-redux";
 import CustomSpinner from "../../utils/Spinner/CustomSpinner";
 
 const ServicesPage = () => {
   const { t, i18n } = useTranslation();
   const { lang } = useParams();
 
-  //Redux
-  const { pages } = useSelector((state) => state.home);
-  const servicesPage = pages.find(
-    (page) => page.identifier === "services_page"
-  );
-  const { services, isServiceDataLoading } = useSelector(
-    (state) => state.services
-  );
-  const { data } = useSelector((state) => state.settings);
+  //RTQ Query
+  const { data: servicesData, isLoading, isError } = useGetAllServicesQuery();
+  const { data: settingsData } = useGetSettingsQuery();
+
+  // Destructure data from servicesData
+  const { services } = servicesData.data;
 
   useEffect(() => {
     window.scrollTo({
@@ -39,7 +38,9 @@ const ServicesPage = () => {
     <>
       {/* Page title */}
       <HelmetComponent
-        title={`${data.settings.website_title} | ${t("words:navbar.services")}`}
+        title={`${settingsData.data.settings.website_title} | ${t(
+          "words:navbar.services"
+        )}`}
       />
       <BreadcrumbComponent current={t("words:navbar.services")} />
       {/* Services */}
@@ -47,15 +48,13 @@ const ServicesPage = () => {
         className="serviceSection"
         dir={LanguageDirection(lang ?? defaultLang)}
       >
-        {isServiceDataLoading !== "fulfilled" ? (
+        {isLoading || isError ? (
           <CustomSpinner />
         ) : (
           <ItemsComponent
             items={services}
-            hasTitle={true}
-            hasDescription={true}
-            title={servicesPage.title}
-            description={servicesPage.description}
+            hasTitle={false}
+            hasDescription={false}
             name={"services"}
           />
         )}

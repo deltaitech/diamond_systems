@@ -5,25 +5,36 @@ import { useSelector } from "react-redux";
 import HelmetComponent from "../../utils/Helmet/HelmetComponent";
 import { LanguageDirection, defaultLang } from "../../utils/Helpers/General";
 
+import { useGetSettingsQuery } from "../../slices/settings-slice";
+import { useGetHomeDataQuery } from "../../slices/home-slice";
+import { useGetAllServicesQuery } from "../../slices/services-slice";
+
 import AboutComponent from "../../components/About/AboutComponent";
 import MainSliderComponent from "../../components/MainSlider/MainSliderComponent";
 import CounterComponent from "../../components/Counter/CounterComponent";
 import SliderComponent from "../../components/Slider/SliderComponent";
 import ItemsComponent from "../../components/Items/ItemsComponent";
+import FeaturesComponent from "../../components/Features/FeaturesComponent";
 
 import "./HomePage.scss";
-import FeaturesComponent from "../../components/Features/FeaturesComponent";
 
 const HomePage = () => {
   const { t, i18n } = useTranslation();
   const { lang } = useParams();
 
-  //Redux
-  const { sliders, pages, clients, counters } = useSelector(
-    (state) => state.home
-  );
-  const { services } = useSelector((state) => state.services);
-  const { data } = useSelector((state) => state.settings);
+  // Settings RTK query
+  const { data: settingsData } = useGetSettingsQuery();
+
+  const { data: homeData } = useGetHomeDataQuery();
+
+  const { data: servicesData } = useGetAllServicesQuery();
+
+  // Destructure data from homeData
+  const { sliders, pages, clients, counters } = homeData.data;
+
+  // Destructure data from servicesData
+  const { services } = servicesData.data;
+
   const counterPage = pages.find((page) => page.identifier === "counter_page");
 
   useEffect(() => {
@@ -41,20 +52,18 @@ const HomePage = () => {
   return (
     <>
       {/* Page title */}
-      <HelmetComponent
-        title={`${data.settings.website_title}`}
-      />
+      <HelmetComponent title={`${settingsData.data.settings.website_title}`} />
       <section dir={LanguageDirection(lang ?? defaultLang)}>
         {/* Slider */}
         <MainSliderComponent
           sliders={sliders}
-          socials={data.contacts.social}
+          socials={settingsData.data.contacts.social}
           className="mb-5"
         />
 
         <div className="SliderFeature">
           {/* Features */}
-          <FeaturesComponent />
+          {/* <FeaturesComponent /> */}
         </div>
 
         {/* Services */}

@@ -1,18 +1,22 @@
 import { configureStore } from "@reduxjs/toolkit";
-import HomeDataSlice from "./home-slice";
-import servicesSlice from "./services-slice";
-import settingsSlice from "./settings-slice";
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { servicesApi } from "./services-slice";
+import { settingsApi } from "./settings-slice";
+import { homeApi } from "./home-slice";
 
 export const store = configureStore({
   reducer: {
-    home: HomeDataSlice,
-    services: servicesSlice,
-    settings: settingsSlice,
+    [homeApi.reducerPath]: homeApi.reducer,
+    [servicesApi.reducerPath]: servicesApi.reducer,
+    [settingsApi.reducerPath]: settingsApi.reducer,
   },
-  devTools: false,
-  // middleware: [
-  //   ...getDefaultMiddleware({
-  //     serializableCheck: false,
-  //   }),
-  // ],
+  devTools: true,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat([
+      settingsApi.middleware,
+      homeApi.middleware,
+      servicesApi.middleware,
+    ]),
 });
+
+setupListeners(store.dispatch);

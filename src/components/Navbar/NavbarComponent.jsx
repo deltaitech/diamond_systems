@@ -10,6 +10,7 @@ import { useTranslation } from "react-i18next";
 import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import { SA, GB } from "country-flag-icons/react/3x2";
 import { useSelector } from "react-redux";
+import { useGetSettingsQuery } from "../../slices/settings-slice";
 import {
   LanguageDirection,
   defaultLang,
@@ -31,7 +32,9 @@ const NavbarComponent = () => {
   }, [lang]);
 
   // Redux
-  const { data } = useSelector((state) => state.settings);
+  // const { data } = useSelector((state) => state.settings);
+
+  const { data } = useGetSettingsQuery();
 
   // toggle offCanvas
   const [show, setShow] = useState(false);
@@ -72,8 +75,8 @@ const NavbarComponent = () => {
       <Container>
         <Navbar.Brand as={NavLink} to={isMultiLang ? `/${lang}` : `/`}>
           <Logo
-            src={data.settings.logo}
-            alt={data.settings.website_title}
+            src={data.data.settings.logo}
+            alt={data.data.settings.website_title}
             style={{
               width: "15rem",
               height: "4.5rem",
@@ -98,8 +101,8 @@ const NavbarComponent = () => {
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
               <Logo
-                src={data.settings.logo}
-                alt={data.settings.website_title}
+                src={data.data.settings.logo}
+                alt={data.data.settings.website_title}
                 style={{
                   width: "15rem",
                   height: "4.5rem",

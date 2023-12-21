@@ -6,13 +6,14 @@ import { useSelector } from "react-redux";
 import { LanguageDirection, defaultLang } from "../../../utils/Helpers/General";
 
 import "./Breadcrumb.scss";
+import { useGetSettingsQuery } from "../../../slices/settings-slice";
 
 const BreadcrumbComponent = ({ link1, title1, link2, title2, current }) => {
   const { lang } = useParams();
   const { t, i18n } = useTranslation();
 
-  //Redux
-  const { data } = useSelector((state) => state.settings);
+  //RTQ Query
+  const { data: settingsData } = useGetSettingsQuery();
 
   useEffect(() => {
     i18n.changeLanguage(lang ?? defaultLang);
@@ -21,7 +22,7 @@ const BreadcrumbComponent = ({ link1, title1, link2, title2, current }) => {
   return (
     <div
       className="custom_breadcrumb"
-      style={{ "--breadcrumb-img": `url(${data.settings.breadcrumb})` }}
+      style={{ "--breadcrumb-img": `url(${settingsData?.data.settings.breadcrumb})` }}
     >
       <Container dir={LanguageDirection(lang ?? defaultLang)}>
         <div className="breadcrumb_main_title">
