@@ -9,11 +9,12 @@
         overflow: hidden;
 
         .counterColumn {
-           
+
             .countingIcon {
                 font-size: 2rem;
                 color: $secondaryColor;
             }
+
             .countingNumber {
                 font-size: 3rem;
                 color: $thirdColor;
@@ -21,6 +22,10 @@
 
             .counterTitle {
                 color: $primaryColor;
+            }
+
+            @media (max-width: 980px) {
+                margin-block-end: 2rem;
             }
         }
 
