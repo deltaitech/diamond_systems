@@ -42,7 +42,7 @@ const HomePage = () => {
     <>
       {/* Page title */}
       <HelmetComponent
-        title={`${data.settings.website_title} | ${t("words:navbar.home")}`}
+        title={`${data.settings.website_title}`}
       />
       <section dir={LanguageDirection(lang ?? defaultLang)}>
         {/* Slider */}

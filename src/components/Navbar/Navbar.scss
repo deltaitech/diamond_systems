@@ -6,7 +6,7 @@
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 500;
-  background-color: rgba($whiteColor,1) !important;
+  background-color: rgba($whiteColor, 1) !important;
 
   &:lang('ar') {
     font-size: 14px;
@@ -17,7 +17,6 @@
   .nav-link {
     color: $primaryColor;
     padding: 1rem 0.7rem !important;
-    border-radius: 40px;
     transition: background-color ease-in-out 0.3ms;
     font-size: 1rem;
 
@@ -27,6 +26,7 @@
 
     &:hover {
       color: $secondaryColor !important;
+      border-bottom: 1px solid $secondaryColor;
     }
 
     &:target {
@@ -37,7 +37,6 @@
     &:focus-within {
       color: $secondaryColor !important;
     }
-
   }
 
 
@@ -45,7 +44,7 @@
     color: $secondaryColor !important;
     min-width: 5rem;
     min-height: 2rem;
-    // text-align: center !important;
+    border-bottom: 1px solid $secondaryColor;
   }
 
   .nav-link.show {
@@ -56,12 +55,11 @@
     box-shadow: none;
   }
 }
-
 // navbar style end
 
 // toggler style start
 .offcanvas {
-  background-color: rgba($whiteColor,0.85) !important;
+  background-color: rgba($whiteColor, 0.85) !important;
 
   .btn-close {
     // filter: invert(100) brightness(100%) contrast(100%);
@@ -129,13 +127,14 @@
   }
 }
 
-.offcanvas.show {
-  &:not(.hiding) {
-    background-color: $secondaryColor;
-    color: $primaryColor;
+.offcanvas{
+  &.show {
+    &:not(.hiding) {
+      background-color: $secondaryColor;
+      color: $primaryColor;
+    }
   }
 }
-
 // toggler style end
 
 // mobile style start
@@ -143,25 +142,40 @@
 @media only screen and (max-width: 1024px) {
   .navbar {
     .navbar-nav {
-      .nav-link.active {
-        min-width: unset !important;
-        border-radius: 20 !important;
+      .nav-link {
+        &.active {
+          min-width: unset !important;
+        }
       }
 
       font-size: 1rem !important;
     }
+  }
 
+  .offcanvas {
+    .navbar-nav {
+      .nav-link {
+        &.active {
+          border-bottom: unset !important;
+        }
+
+        &:hover {
+          border-bottom: unset !important;
+        }
+      }
+    }
   }
 }
 
 @media (max-width: 992px) {
   .navbar {
-    .navbar-brand{
-      img{
+    .navbar-brand {
+      img {
         width: 18rem !important;
       }
     }
   }
+
   .offcanvas {
     max-width: 16rem;
   }
@@ -169,15 +183,16 @@
 
 @media (max-width: 500px) {
   .navbar {
-    .navbar-brand{
-      img{
+    .navbar-brand {
+      img {
         width: 16rem !important;
       }
     }
   }
+
   .offcanvas {
-    img{
-      max-width: 15rem;
+    img {
+      max-width: fit-content;
     }
   }
 }
@@ -187,5 +202,4 @@
     max-width: 80% !important;
   }
 }
-
 // mobile style start
