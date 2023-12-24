@@ -14,7 +14,7 @@ const BreadcrumbComponent = ({ link1, title1, link2, title2, current }) => {
   const { t, i18n } = useTranslation();
 
   //RTQ Query
-  const { data: settingsData } = useGetSettingsQuery();
+  const { data: settingsData } = useGetSettingsQuery(lang);
 
   useEffect(() => {
     i18n.changeLanguage(lang ?? defaultLang);

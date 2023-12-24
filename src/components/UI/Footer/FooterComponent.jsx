@@ -22,7 +22,7 @@ const FooterComponent = () => {
   const { lang } = useParams();
 
   // RTK Query
-  const { data } = useGetSettingsQuery();
+  const { data } = useGetSettingsQuery(lang);
 
   useEffect(() => {
     i18n.changeLanguage(lang ?? defaultLang);

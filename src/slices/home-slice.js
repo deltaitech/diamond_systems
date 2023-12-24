@@ -6,7 +6,13 @@ export const homeApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: baseURL.demo }),
   endpoints: (builder) => ({
     getHomeData: builder.query({
-      query: () => "home",
+      query: (lang) => ({
+        url: "home",
+        headers: {
+          "Content-Type": "application/json",
+          locale: lang,
+        },
+      }),
     }),
   }),
 });

@@ -12,7 +12,7 @@ const HelmetComponent = ({ title }) => {
   // const { data } = useSelector((state) => state.settings);
 
   // Settings RTK Query
-  const { data } = useGetSettingsQuery();
+  const { data } = useGetSettingsQuery(lang);
   return (
     <HelmetProvider>
       <Helmet

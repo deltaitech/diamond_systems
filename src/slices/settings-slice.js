@@ -6,7 +6,13 @@ export const settingsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: baseURL.demo }),
   endpoints: (builder) => ({
     getSettings: builder.query({
-      query: () => "settings",
+      query: (lang) => ({
+        url: "settings",
+        headers: {
+          "Content-Type": "application/json",
+          locale: lang,
+        },
+      }),
     }),
   }),
 });

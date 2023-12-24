@@ -11,7 +11,7 @@ const PageTitleComponent = ({ identifier }) => {
   const { t, i18n } = useTranslation();
   const { lang } = useParams();
   // RTK Query
-  const { data: homeData } = useGetHomeDataQuery();
+  const { data: homeData } = useGetHomeDataQuery(lang);
   // Destructure data from homeData
   const { pages } = homeData.data;
 

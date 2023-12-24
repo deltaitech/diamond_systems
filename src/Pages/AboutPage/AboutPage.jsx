@@ -40,13 +40,13 @@ const AboutPage = () => {
   }, [lang]);
 
   // RTK Query
-  const { data: settingsData } = useGetSettingsQuery();
+  const { data: settingsData } = useGetSettingsQuery(lang);
 
   const {
     data: homeData,
     isLoading: homeLoading,
     isError: homeError,
-  } = useGetHomeDataQuery();
+  } = useGetHomeDataQuery(lang);
   // Destructure data from homeData
   const { pages, clients } = homeData.data;
 

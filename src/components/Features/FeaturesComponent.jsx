@@ -18,7 +18,7 @@ const FeaturesComponent = () => {
     i18n.changeLanguage(lang ?? defaultLang);
   }, [lang]);
 
-  const { data: homeData } = useGetHomeDataQuery();
+  const { data: homeData } = useGetHomeDataQuery(lang);
   // Destructure data from homeData
   const { features } = homeData.data;
 

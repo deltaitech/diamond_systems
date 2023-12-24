@@ -6,7 +6,13 @@ export const servicesApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: baseURL.demo }),
   endpoints: (builder) => ({
     getAllServices: builder.query({
-      query: () => "services",
+      query: (lang) => ({
+        url: "services",
+        headers: {
+          "Content-Type": "application/json",
+          locale: lang,
+        },
+      }),
     }),
   }),
 });

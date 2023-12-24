@@ -9,7 +9,7 @@ import "./WhatsappComponent.scss";
 const WhatsappComponent = () => {
   const { lang } = useParams();
   // const { data } = useSelector((state) => state.settings);
-  const { data } = useGetSettingsQuery();
+  const { data } = useGetSettingsQuery(lang);
   const number = data.data.contacts?.whatsapp?.map((number) => number.contact);
 
   return (

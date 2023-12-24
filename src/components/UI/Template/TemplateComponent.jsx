@@ -41,12 +41,12 @@ const TemplateComponent = ({ children }) => {
 
   // Settings RTK query
   const { isLoading: settingsLoading, isError: settingsError } =
-    useGetSettingsQuery();
+    useGetSettingsQuery(lang);
 
-  const { isLoading: homeLoading, isError: homeError } = useGetHomeDataQuery();
+  const { isLoading: homeLoading, isError: homeError } = useGetHomeDataQuery(lang);
 
   const { isLoading: servicesLoading, isError: servicesError } =
-    useGetAllServicesQuery();
+    useGetAllServicesQuery(lang);
 
   return homeLoading ||
     homeError ||

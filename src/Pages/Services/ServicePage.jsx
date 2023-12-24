@@ -27,8 +27,8 @@ const ServicePage = () => {
   const { lang, id } = useParams();
 
   //RTQ Query
-  const { data: servicesData, isLoading, isError } = useGetAllServicesQuery();
-  const { data: settingsData } = useGetSettingsQuery();
+  const { data: servicesData, isLoading, isError } = useGetAllServicesQuery(lang);
+  const { data: settingsData } = useGetSettingsQuery(lang);
 
   // Destructure data from servicesData
   const { services } = servicesData.data;

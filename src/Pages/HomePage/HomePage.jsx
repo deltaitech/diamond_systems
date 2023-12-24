@@ -22,11 +22,11 @@ const HomePage = () => {
   const { lang } = useParams();
 
   // RTK Query
-  const { data: settingsData } = useGetSettingsQuery();
+  const { data: settingsData } = useGetSettingsQuery(lang);
 
-  const { data: homeData } = useGetHomeDataQuery();
+  const { data: homeData } = useGetHomeDataQuery(lang);
 
-  const { data: servicesData } = useGetAllServicesQuery();
+  const { data: servicesData } = useGetAllServicesQuery(lang);
 
   // Destructure data from homeData
   const { sliders, pages, clients, counters } = homeData.data;

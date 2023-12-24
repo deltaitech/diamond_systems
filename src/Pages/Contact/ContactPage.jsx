@@ -36,7 +36,7 @@ const ContactPage = () => {
   }, [lang]);
 
   // RTK Query
-  const { data, isLoading, isError } = useGetSettingsQuery();
+  const { data, isLoading, isError } = useGetSettingsQuery(lang);
 
   return (
     <>

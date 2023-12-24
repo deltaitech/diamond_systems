@@ -34,7 +34,7 @@ const NavbarComponent = () => {
   // Redux
   // const { data } = useSelector((state) => state.settings);
 
-  const { data } = useGetSettingsQuery();
+  const { data } = useGetSettingsQuery(lang);
 
   // toggle offCanvas
   const [show, setShow] = useState(false);
