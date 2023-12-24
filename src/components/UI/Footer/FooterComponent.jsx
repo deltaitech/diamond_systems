@@ -11,8 +11,11 @@ import { useSelector } from "react-redux";
 import { useGetSettingsQuery } from "../../../slices/settings-slice";
 
 import { Col, Container, Image, Row } from "react-bootstrap";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import PlaceholderImage from "../../../assets/favicon.png";
 
 import "./FooterComponent.scss";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const FooterComponent = () => {
   const { t, i18n } = useTranslation();
@@ -36,11 +39,15 @@ const FooterComponent = () => {
         <Row className="">
           {/* Logo Col */}
           <Col lg={4} md={4} sm={12} xs={12} className="logoSection">
-            <Image
-              src={data.data.settings.white_logo}
-              className="footerLogo"
-              alt={t("words:site_title")}
-            />
+            <div className="footerLogo">
+              <LazyLoadImage
+                alt={"footerLogo"}
+                effect="blur"
+                src={data.data.settings.white_logo}
+                placeholderSrc={PlaceholderImage}
+                className="w-100"
+              />
+            </div>
             <div
               className="footerDescription"
               dangerouslySetInnerHTML={{
