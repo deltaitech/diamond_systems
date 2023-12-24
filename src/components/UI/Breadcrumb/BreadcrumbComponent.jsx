@@ -29,7 +29,7 @@ const BreadcrumbComponent = ({ link1, title1, link2, title2, current }) => {
         <div className="breadcrumb_main_title">
           <h2>{current}</h2>
         </div>
-        <Breadcrumb className="d-flex justify-content-center align-items-center">
+        <Breadcrumb className="d-flex justify-content-start align-items-start">
           <Breadcrumb.Item linkAs={"span"}>
             <Link to={`/${lang}`}>{t("words:navbar.home")}</Link>
           </Breadcrumb.Item>

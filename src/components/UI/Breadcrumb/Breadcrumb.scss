@@ -2,10 +2,9 @@
 
 .custom_breadcrumb {
     margin-block-start: 6rem;
-    background: linear-gradient(to top,
+    background: linear-gradient(to left,
             rgba($textColor, 0.65) 20%,
-            rgba($secondaryColor, 0.7) 60%,
-            transparent), var(--breadcrumb-img);
+            rgba($secondaryColor, 0.4) 60%), var(--breadcrumb-img);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -17,7 +16,7 @@
 
         .breadcrumb_main_title {
             padding-block-end: 1rem;
-            @include flexDiv();
+            @include flexStartDiv();
             color: $whiteColor;
             text-transform: uppercase;
             font-size: 2.857em;
@@ -38,12 +37,12 @@
 
                     &:hover {
                         text-decoration: none;
-                        color: $primaryColor;
+                        color: $secondaryColor;
                     }
                 }
 
                 &.active {
-                    color: $primaryColor !important;
+                    color: $secondaryColor !important;
                     font-size: clamp(1rem, 7vw, 1.2rem);
                 }
 
