@@ -16,7 +16,12 @@ import "yet-another-react-lightbox/plugins/counter.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import "yet-another-react-lightbox/styles.css";
 
-const LightboxComponent = ({ slides, slide, title, lightbox, setLightbox }) => {
+const LightboxComponent = ({
+  slides,
+  lightbox,
+  setLightbox,
+  pathname = "<object>.image",
+}) => {
   // Refs
   const thumbnailsRef = useRef(null);
   const slideshowRef = useRef(null);
@@ -37,25 +42,17 @@ const LightboxComponent = ({ slides, slide, title, lightbox, setLightbox }) => {
             index: 0,
           })
         }
-        slides={
-          slides
-            ? slides.map((slide, index) => ({
-                type: "image",
-                src: slide.image,
-                alt: `image #${index}`,
-                imageFit: "contain",
-                title: title,
-              }))
-            : [
-                {
-                  type: "image",
-                  src: slide,
-                  alt: `image`,
-                  title: title,
-                  imageFit: "contain",
-                },
-              ]
-        }
+        slides={slides?.map((slide, index) => ({
+          type: "image",
+          src: pathname.includes(".image")
+            ? slide?.image
+            : pathname.includes(".path")
+            ? slide?.path
+            : slide,
+          alt: `image #${index}`,
+          imageFit: "contain",
+          title: slide.hasOwnProperty("name") ? slide?.name : slide?.title,
+        }))}
         counter={{
           style: {
             left: lang === "en" ? 0 : "unset",

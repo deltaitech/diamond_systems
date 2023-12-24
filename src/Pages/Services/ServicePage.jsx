@@ -119,8 +119,7 @@ const ServicePage = () => {
               <LightboxComponent
                 lightbox={lightbox}
                 setLightbox={setLightbox}
-                slide={service?.image}
-                title={service?.title}
+                slides={[service]}
               />
             </Row>
           )}
