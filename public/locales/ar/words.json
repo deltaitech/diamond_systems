@@ -1,5 +1,5 @@
 {
-    "site_title": "شيري وود",
+    "site_title": "الأنظمة الماسية",
     "email": "البريد الإلكتروني",
     "read_more": "إقرأ المزيد",
     "show_more": "عرض المزيد...",
@@ -11,13 +11,13 @@
     "address": "العنوان",
     "phone": "الجوال",
     "social": "وسائل التواصل الإجتماعي",
-    "our_services":"خدماتنا",
+    "our_services": "خدماتنا",
     "copyrights": {
         "developed": "تصميم وبرمجة ",
         "company": "مروان جروب لتقنية المعلومات"
     },
     "navbar": {
-        "site_title": "شيري وود",
+        "site_title": "الأنظمة الماسية",
         "home": "الرئيسية",
         "about": "من نحن",
         "services": "الخدمات",
@@ -27,7 +27,8 @@
     },
     "footer": {
         "our_services": "خدماتنا",
-        "contact_us": "تواصل معنا"
+        "contact_us": "تواصل معنا",
+        "links": "روابط"
     },
     "form": {
         "placeholders": {

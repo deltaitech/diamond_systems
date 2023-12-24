@@ -1,5 +1,5 @@
 {
-    "site_title": "Cherry Wood",
+    "site_title": "Diamond Systems",
     "read_more": "Read more",
     "show_more": "Show more...",
     "recent_works": "Recent Works",
@@ -17,7 +17,7 @@
         "company": "Marwan Group for information technology"
     },
     "navbar": {
-        "site_title": "Cherry Wood",
+        "site_title": "Diamond Systems",
         "home": "Home",
         "about": "About us",
         "services": "Services",
@@ -27,7 +27,8 @@
     },
     "footer": {
         "our_services": "Our Services",
-        "contact_us": "Contact us"
+        "contact_us": "Contact us",
+        "links": "Links"
     },
     "form": {
         "placeholders": {

@@ -61,7 +61,7 @@ const TemplateComponent = ({ children }) => {
       <NavbarComponent />
       <main className="main_template">{children}</main>
       <ScrollToTopComponent />
-      {/* <FooterComponent /> */}
+      <FooterComponent />
       <WhatsappComponent />
       <ToastContainer
         position="top-right"

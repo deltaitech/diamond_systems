@@ -8,6 +8,7 @@ import {
   isMultiLang,
 } from "../../../utils/Helpers/General";
 import { useSelector } from "react-redux";
+import { useGetSettingsQuery } from "../../../slices/settings-slice";
 
 import { Col, Container, Image, Row } from "react-bootstrap";
 
@@ -17,8 +18,8 @@ const FooterComponent = () => {
   const { t, i18n } = useTranslation();
   const { lang } = useParams();
 
-  // Redux
-  const { data } = useSelector((state) => state.settings);
+  // RTK Query
+  const { data } = useGetSettingsQuery();
 
   useEffect(() => {
     i18n.changeLanguage(lang ?? defaultLang);
@@ -28,7 +29,7 @@ const FooterComponent = () => {
     <section
       className="footerSection"
       dir={LanguageDirection(lang ?? defaultLang)}
-      style={{ "--footerImage": `url(${data.settings.footer})` }}
+      style={{ "--footerImage": `url(${data.data.settings.footer_img})` }}
     >
       {/* Footer */}
       <Container className="footerContainer">
@@ -36,26 +37,26 @@ const FooterComponent = () => {
           {/* Logo Col */}
           <Col lg={4} md={4} sm={12} xs={12} className="logoSection">
             <Image
-              src={data.settings.white_logo}
+              src={data.data.settings.white_logo}
               className="footerLogo"
               alt={t("words:site_title")}
             />
             <div
               className="footerDescription"
               dangerouslySetInnerHTML={{
-                __html: data.settings.footer_description,
+                __html: data.data.settings.footer_description,
               }}
             ></div>
           </Col>
 
           {/* Links Col */}
           <Col lg={4} md={4} sm={12} xs={12} className="linksSection">
-            <h4 className="FooterMainTitle">{t("words:our_services")}</h4>
+            <h4 className="FooterMainTitle">{t("words:footer.links")}</h4>
 
             <ul className="footerLinks">
               <li>
                 <NavLink
-                  to={`/${isMultiLang && lang}`}
+                  to={isMultiLang ? `/${lang}` : `/`}
                   end
                   className={({ isActive }) => (isActive ? "active" : "")}
                 >
@@ -65,7 +66,7 @@ const FooterComponent = () => {
 
               <li>
                 <NavLink
-                  to={`/${isMultiLang && lang}/about`}
+                  to={isMultiLang ? `/${lang}/about` : `/about`}
                   className={({ isActive }) => (isActive ? "active" : "")}
                 >
                   {t("words:navbar.about")}
@@ -74,16 +75,7 @@ const FooterComponent = () => {
 
               <li>
                 <NavLink
-                  to={`/${isMultiLang && lang}/works`}
-                  className={({ isActive }) => (isActive ? "active" : "")}
-                >
-                  {t("words:navbar.works")}
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink
-                  to={`/${isMultiLang && lang}/services`}
+                  to={isMultiLang ? `/${lang}/services` : `/services`}
                   className={({ isActive }) => (isActive ? "active" : "")}
                 >
                   {t("words:navbar.services")}
@@ -92,7 +84,7 @@ const FooterComponent = () => {
 
               <li>
                 <NavLink
-                  to={`/${isMultiLang && lang}/contact`}
+                  to={isMultiLang ? `/${lang}/contact` : `/contact`}
                   className={({ isActive }) => (isActive ? "active" : "")}
                 >
                   {t("words:navbar.contact")}
@@ -111,11 +103,11 @@ const FooterComponent = () => {
                   <i className="fa-solid fa-location-pin"></i>
                   {t("words:address")}:
                 </label>
-                <span>{data.settings.address}</span>
+                <span>{data.data.settings.address}</span>
               </li>
 
               <li>
-                {data.contacts.mobile.map((phone, index) => (
+                {data.data.contacts.mobile.map((phone, index) => (
                   <div key={index}>
                     <label className="contactLabel">
                       <i className={phone.icon}></i>
@@ -129,7 +121,7 @@ const FooterComponent = () => {
               </li>
 
               <li>
-                {data.contacts.email.map((mail, index) => (
+                {data.data.contacts.email.map((mail, index) => (
                   <div key={index}>
                     <label className="contactLabel">
                       <i className={mail.icon}></i>
@@ -144,7 +136,7 @@ const FooterComponent = () => {
 
               <li>
                 <ul className="list-group list-group-horizontal">
-                  {data.contacts.social.map((so, index) => (
+                  {data.data.contacts.social.map((so, index) => (
                     <li className="list-group-item socialIcon" key={index}>
                       <Link to={`${so.contact}`} target="_blank">
                         <i className={`${so.icon}`}></i>
@@ -158,7 +150,7 @@ const FooterComponent = () => {
         </Row>
         {/* Company copyrights */}
         <Row>
-          <Col className="copyrights">{data.settings.copyrights}</Col>
+          <Col className="copyrights">{data.data.settings.copyrights}</Col>
         </Row>
       </Container>
 

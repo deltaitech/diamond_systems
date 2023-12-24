@@ -5,10 +5,10 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(to right,
-            rgba($textColor, 0.7) 30%,
-            rgba($textColor, 0.7) 60%),
+            rgba($textColor, 0.5) 30%,
+            rgba($textColor, 0.5) 60%),
         var(--footerImage);
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgba($textColor, 0.4);
@@ -151,7 +151,7 @@
                         padding-inline-start: 0.45rem;
 
                         a {
-                            color: $featureColumn;
+                            color: $primaryColor;
                             text-transform: capitalize;
                         }
                     }
@@ -161,7 +161,7 @@
                         color: $whiteColor;
 
                         &.active {
-                            color: $featureColumn !important
+                            color: $primaryColor !important
                         }
                     }
                 }
