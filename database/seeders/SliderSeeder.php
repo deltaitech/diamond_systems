@@ -22,10 +22,6 @@ class SliderSeeder extends Seeder
                     'title' => $titles[$s],
                     'description' => $descriptions[$s]
                 ],
-                'en' => [
-                    'title' => "lore,mdddddddd",
-                    'description' => "lore,mdddddddd"
-                ],
                 'status' => 1
             ]);
             $slider->file()->create([

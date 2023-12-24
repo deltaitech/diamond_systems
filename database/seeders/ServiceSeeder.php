@@ -79,10 +79,6 @@ class ServiceSeeder extends Seeder
                     'title' => $title[$s],
                     'description' => $description[$s]
                 ],
-                'en' => [
-                    'title' => "lore,mdddddddd",
-                    'description' => "lore,mdddddddd"
-                ],
                 'status' => 1
             ]);
             $service->file()->create([
