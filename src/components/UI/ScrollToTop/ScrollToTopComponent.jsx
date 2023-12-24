@@ -22,7 +22,7 @@ const ScrollToTopComponent = () => {
     show && (
       <div
         dir={LanguageDirection(lang ?? defaultLang)}
-        className="scroll-container"
+        className="scroll-container animate__animated animate__bounce animate__duration_5s animate__delay-5s animate__slower animate__infinite"
         onClick={() => {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
