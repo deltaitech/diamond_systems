@@ -3,7 +3,7 @@ import { Breadcrumb, Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { LanguageDirection, defaultLang } from "../../../utils/Helpers/General";
+import { LanguageDirection, defaultLang, isMultiLang } from "../../../utils/Helpers/General";
 
 import { useGetSettingsQuery } from "../../../slices/settings-slice";
 
@@ -31,7 +31,7 @@ const BreadcrumbComponent = ({ link1, title1, link2, title2, current }) => {
         </div>
         <Breadcrumb className="d-flex justify-content-start align-items-start">
           <Breadcrumb.Item linkAs={"span"}>
-            <Link to={`/${lang}`}>{t("words:navbar.home")}</Link>
+            <Link to={isMultiLang ? `/${lang}` : `/`}>{t("words:navbar.home")}</Link>
           </Breadcrumb.Item>
 
           {title1 ? (

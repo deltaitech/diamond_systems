@@ -33,7 +33,7 @@
                     text-decoration: none;
                     color: $whiteColor;
                     font-weight: 500;
-                    font-size: clamp(1rem, 7vw, 1.4rem);
+                    font-size: clamp(1rem, 7vw, 1.2rem);
 
                     &:hover {
                         text-decoration: none;
@@ -48,7 +48,7 @@
 
                 &::before {
                     color: $whiteColor !important;
-                    font-size: clamp(1rem, 7vw, 1.4rem);
+                    font-size: clamp(1rem, 7vw, 1.2rem);
                     float: unset !important;
                     padding-left: var(--bs-breadcrumb-item-padding-x);
                 }
