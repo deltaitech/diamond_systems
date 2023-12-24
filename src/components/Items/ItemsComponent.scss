@@ -2,7 +2,7 @@
 
 .itemSection {
     background-color: $bodyColor;
-    overflow: hidden;
+    overflow: clip;
     padding-block: 3rem;
 
     .sectionTitle {
@@ -35,22 +35,37 @@
 
         .itemColumn {
             margin-block-end: 3rem;
+            scale: 1;
+            transition: scale ease-in-out 0.4s;
 
             .itemCard {
-                border-radius: unset;
                 position: relative;
+                border-radius: unset;
+                border: unset !important;
                 overflow: visible;
 
                 .imageContainer {
                     overflow: hidden !important;
+                    border-radius: unset;
+                    width: 100% !important;
+                    height: 100% !important;
+                    min-height: 20rem;
 
-                    .itemCardImage {
-                        border-radius: unset;
-                        height: 15rem;
-                        background-color: $primaryColor;
-                        scale: 1;
-                        transition: scale ease-in-out 0.4s
+                    span {
+                        overflow: hidden !important;
+                        display: block !important;
+                        height: 100% !important;
+                        min-height: 20rem;
                     }
+
+                    img {
+                        width: 100% !important;
+                        height: 100% !important;
+                        min-height: 20rem;
+                        overflow: hidden !important;
+                        object-fit: fill !important;
+                    }
+
                 }
 
 
@@ -63,7 +78,7 @@
                     inset-block-start: 90%;
                     width: 95%;
                     margin: 0 auto;
-                    overflow: hidden;
+                    overflow: clip;
 
                     .itemCardBodyTitle {
                         font-size: 1rem;
@@ -74,8 +89,9 @@
                         a {
                             text-decoration: none;
                             color: $primaryColor;
-                            &:hover{
-                                color: $featureMiddleColumn; 
+
+                            &:hover {
+                                color: $featureMiddleColumn;
                             }
                         }
                     }
@@ -83,20 +99,13 @@
             }
 
             &:hover {
-                .itemCard {
-                    .imageContainer {
-
-                        .itemCardImage {
-                            scale: 1.2;
-                        }
-                    }
-
-                    .itemCardBody {
-                        .itemCardBodyTitle {
-                            color: $featureMiddleColumn;
-                        }
+                scale: 1.1;
+                .itemCardBody {
+                    .itemCardBodyTitle {
+                        color: $featureMiddleColumn;
                     }
                 }
+
             }
         }
     }
@@ -117,18 +126,3 @@
         }
     }
 }
-
-// @media (max-width: 1200px) {
-//     .itemSection {
-//         .sectionTitle {
-//             &::before {
-//                 width: 10vw;
-//                 height: 2px;
-//                 background-color: $secondaryColor;
-//                 inset-block-start: 130%;
-//                 inset-inline-start: 42%;
-//             }
-//         }
-//     }
-
-// }

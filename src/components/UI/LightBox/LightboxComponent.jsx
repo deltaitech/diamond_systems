@@ -8,6 +8,7 @@ import {
   Slideshow,
   Thumbnails,
   Zoom,
+  Captions,
 } from "yet-another-react-lightbox/plugins";
 
 import "yet-another-react-lightbox/plugins/captions.css";
@@ -21,13 +22,14 @@ const LightboxComponent = ({ slides, slide, title, lightbox, setLightbox }) => {
   const slideshowRef = useRef(null);
   const fullscreenRef = useRef(null);
   const zoomRef = useRef(null);
+  const captionsRef = useRef(null);
   // i18next
   const { lang } = useParams();
   const { t, i18n } = useTranslation();
   return (
     <>
       <Lightbox
-        plugins={[Thumbnails, Counter, Slideshow, Fullscreen, Zoom]}
+        plugins={[Thumbnails, Counter, Slideshow, Fullscreen, Zoom, Captions]}
         open={lightbox.isOpen}
         close={() =>
           setLightbox({
@@ -42,13 +44,17 @@ const LightboxComponent = ({ slides, slide, title, lightbox, setLightbox }) => {
                 src: slide.image,
                 alt: `image #${index}`,
                 imageFit: "contain",
+                title: title,
               }))
-            : [{
-                type: "image",
-                src: slide,
-                alt: `image`,
-                imageFit: "contain",
-              }]
+            : [
+                {
+                  type: "image",
+                  src: slide,
+                  alt: `image`,
+                  title: title,
+                  imageFit: "contain",
+                },
+              ]
         }
         counter={{
           style: {
@@ -87,6 +93,11 @@ const LightboxComponent = ({ slides, slide, title, lightbox, setLightbox }) => {
 
             // Zoom
             zoomRef.current?.zoomIn();
+
+            // Captions
+            (captionsRef.current?.visible
+              ? captionsRef.current?.hide
+              : captionsRef.current?.show)?.();
           },
         }}
       />

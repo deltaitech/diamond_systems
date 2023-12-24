@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
 import { Link, useParams } from "react-router-dom";
 import { defaultLang, isMultiLang } from "../../utils/Helpers/General";
 import CustomButton from "../UI/CustomButton/CustomButton";
+import PlaceholderImage from "../../assets/favicon.png";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 import { Fade, Zoom } from "react-awesome-reveal";
 
 import "./ItemsComponent.scss";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const ItemsComponent = ({
   items,
@@ -74,12 +78,14 @@ const ItemsComponent = ({
               <Col className="itemColumn">
                 <Card className="itemCard">
                   <div className="imageContainer">
-                    <Card.Img
-                      variant="top"
-                      className="itemCardImage"
+                    <LazyLoadImage
+                      alt={title}
+                      effect="blur"
                       src={
                         item.hasOwnProperty("cover") ? item.cover : item.image
                       }
+                      placeholderSrc={PlaceholderImage}
+                      className="w-100"
                     />
                   </div>
 
@@ -92,7 +98,11 @@ const ItemsComponent = ({
                     >
                       {hasSinglePage ? (
                         <Link
-                          to={isMultiLang ? `/${lang}/${name}/${item.id}` : `/${name}/${item.id}`}
+                          to={
+                            isMultiLang
+                              ? `/${lang}/${name}/${item.id}`
+                              : `/${name}/${item.id}`
+                          }
                         >
                           {item.title}
                         </Link>

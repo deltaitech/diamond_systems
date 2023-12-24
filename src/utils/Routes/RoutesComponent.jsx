@@ -7,6 +7,7 @@ import AboutPage from "../../Pages/AboutPage/AboutPage";
 import ContactPage from "../../Pages/Contact/ContactPage";
 import NotFoundPage from "../404/NotFoundPage";
 import ServicesPage from "../../Pages/Services/ServicesPage";
+import ServicePage from "../../Pages/Services/ServicePage";
 
 const RoutesComponent = () => {
   return (
@@ -41,6 +42,15 @@ const RoutesComponent = () => {
           element={
             <TemplateComponent>
               <ServicesPage />
+            </TemplateComponent>
+          }
+        />
+
+<Route
+          path={isMultiLang ? "/:lang/services/:id" : "/services/:id"}
+          element={
+            <TemplateComponent>
+              <ServicePage />
             </TemplateComponent>
           }
         />

@@ -56,6 +56,7 @@ const ServicesPage = () => {
             hasTitle={false}
             hasDescription={false}
             name={"services"}
+            hasSinglePage={true}
           />
         )}
       </section>
