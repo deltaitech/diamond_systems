@@ -1,0 +1,73 @@
+@use './../../utils/Styles/global' as *;
+
+.aboutRow {
+    padding: 1.5rem;
+    margin: 1rem;
+
+    .aboutImage {
+        overflow: clip;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 25rem;
+
+        span {
+            display: block !important;
+            height: 100% !important;
+            min-height: 25rem;
+        }
+
+        img {
+            width: 100% !important;
+            height: 100% !important;
+            min-height: 25rem;
+            object-fit: fill !important;
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            &::after {
+                color: $bodyColor;
+                scale: 1.5;
+            }
+        }
+    }
+
+    .aboutDetails {
+        display: flex;
+        flex-direction: column;
+        justify-content: center !important;
+        align-items: flex-start !important;
+        overflow: hidden;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: $secondaryColor;
+        }
+
+        .aboutTitle {
+            color: $primaryColor;
+            font-size: clamp(1rem, 4vw, 2rem);
+            margin-block-start: clamp(0.5rem, 3.5vw, 3rem);
+        }
+
+        .aboutDescription {
+            font-size: clamp(0.5rem, 3.5vw, 1rem);
+            color: $textColor;
+            margin-block-start: clamp(0.5rem, 3.5vw, 3rem);
+            text-align: justify;
+
+            p,
+            li {
+                line-height: 2;
+            }
+
+        }
+
+
+    }
+}

@@ -10,9 +10,9 @@ import {
 } from "../../utils/Helpers/General";
 import { Slide } from "react-awesome-reveal";
 
-import "./AboutComponent.scss";
+import "./AboutHomeComponent.scss";
 
-const AboutComponent = ({ about, hasButton = false }) => {
+const AboutHomeComponent = ({ about, hasButton = false }) => {
   const { t, i18n } = useTranslation();
   const { lang } = useParams();
   const location = useLocation();
@@ -108,4 +108,4 @@ const AboutComponent = ({ about, hasButton = false }) => {
   );
 };
 
-export default AboutComponent;
+export default AboutHomeComponent;
