@@ -5,8 +5,9 @@ import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { LanguageDirection, defaultLang } from "../../../utils/Helpers/General";
 
-import "./Breadcrumb.scss";
 import { useGetSettingsQuery } from "../../../slices/settings-slice";
+
+import "./Breadcrumb.scss";
 
 const BreadcrumbComponent = ({ link1, title1, link2, title2, current }) => {
   const { lang } = useParams();
