@@ -36,13 +36,13 @@ const CounterComponent = ({ counters }) => {
               sm={12}
               xs={12}
               className="counterColumn text-center"
+              key={index}
             >
               <Fade
                 cascade
                 damping={0.1}
                 delay={index * 110}
                 direction="down"
-                key={index}
                 className=""
               >
                 <i className={`${counter.icon} countingIcon`}></i>
