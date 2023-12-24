@@ -13,9 +13,10 @@
     .contact_btn {
         background-color: $secondaryColor;
         color: $whiteColor;
+        border-radius: 30px !important;
         width: 50%;
 
-        &:focus{
+        &:focus {
             background-color: $secondaryColor;
             color: $whiteColor;
         }

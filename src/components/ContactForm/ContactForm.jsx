@@ -49,6 +49,11 @@ const ContactForm = () => {
       .min(5, t("words:validation.minimum_characters", { number: 2 }))
       .max(500, t("words:validation.maximum_characters", { number: 500 }))
       .required(t("words:validation.required")),
+    phone: yup
+      .string()
+      .required(t("words:validation.required"))
+      .min(6, t("words:validation.minimum_characters", { number: 6 }))
+      .matches(/^[0-9+]+/, t("words:validation.format")),
   });
 
   const {
@@ -62,6 +67,7 @@ const ContactForm = () => {
       name: "",
       email: "",
       message: "",
+      phone: "",
     },
     resolver: yupResolver(schema),
   });
@@ -70,6 +76,7 @@ const ContactForm = () => {
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const messageRef = useRef(null);
+  const phoneRef = useRef(null);
 
   const displayToast = (statusCode, message) => {
     switch (statusCode) {
@@ -113,13 +120,10 @@ const ContactForm = () => {
   return (
     <>
       <Col lg={6} md={6} sm={12} xs={12}>
-        <Form
-          onSubmit={handleSubmit(onSubmit)}
-          className="contactForm"
-        >
+        <Form onSubmit={handleSubmit(onSubmit)} className="contactForm">
           <Row>
             {/* Full Name */}
-            <Col xs={12} sm={12} md={12}>
+            <Col xs={12} sm={12} md={6}>
               <Fade
                 direction={
                   LanguageDirection(lang ?? defaultLang) === "ltr"
@@ -151,6 +155,35 @@ const ContactForm = () => {
                     {errors?.name?.message}
                   </FormControl.Feedback>
                 </FormGroup>
+              </Fade>
+            </Col>
+
+            {/* Phone */}
+            <Col xs={12} sm={12} md={6}>
+              <Fade direction={lang === "en" ? "right" : "left"} delay={25}>
+                <Form.Group className="mb-3" controlId="phone">
+                  <FormLabel className="text-capitalize">
+                    {t("words:form.phone")}
+                  </FormLabel>
+                  <Controller
+                    name="phone"
+                    control={control}
+                    render={({ field }) => (
+                      <FormControl
+                        {...field}
+                        ref={phoneRef}
+                        isInvalid={errors?.phone}
+                        placeholder={t("words:form.placeholders.phone")}
+                        type="text"
+                        autoComplete="off"
+                        className="text-capitalize"
+                      />
+                    )}
+                  />
+                  <FormControl.Feedback type="invalid">
+                    {errors?.phone?.message}
+                  </FormControl.Feedback>
+                </Form.Group>
               </Fade>
             </Col>
           </Row>

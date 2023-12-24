@@ -1,54 +1,48 @@
 @use "../../utils/Styles/global" as *;
 
 .contactPage {
-    .contactPageContainer {
-        background-color: $whiteColor;
-        padding: 3rem;
-        // margin-block-end: 7rem;
+    .contactInfo {
+        @include flexStartDiv();
+        flex-direction: column;
+        justify-content: center !important;
+        overflow: hidden;
+        background-color: rgba($textColor, 0.1);
+        padding: 1.5rem;
+        border-radius: 1rem;
 
-        .contactInfo {
-            @include flexStartDiv();
-            flex-direction: column;
-            justify-content: center !important;
-            overflow: hidden;
-            background-color: rgba($textColor, 0.1);
-            padding: 1.5rem;
+        .logo {
+            margin: 0 auto;
+            width: 100% !important;
+            height: 8rem;
+            object-fit: contain;
+            object-position: center;
+            margin-block-end: 10%;
+        }
 
-            .logo {
-                margin: 0 auto;
-                width: 100% !important;
-                height: 7rem;
-                object-fit: contain;
-                object-position: center;
-            }
+        .contactDetails {
+            margin-block-end: 1rem;
 
-            .map {
-                iframe {
-                    width: 100% !important;
+            .contactLabel {
+                color: $thirdColor;
+                margin-inline-end: 0.5rem;
+
+                i {
+                    margin-inline-end: 0.4rem;
                 }
             }
-        }
-    }
 
-    .contactDetailsContainer {
-        margin-block-start: 2rem;
-        margin-block-end: 9rem;
+            span {
+                color: $primaryColor;
 
-        .contactDetailsColumn {
-            @include flexDiv();
-            background-color: $whiteColor;
-            margin-inline-end: 0.5rem;
-            padding: 2rem;
-
-            .icon{
-                text-align: center;
-                font-size: 1.7rem;
-                color: $featureMiddleColumn;
+                &:hover {
+                    color: $thirdColor;
+                }
             }
 
             .contact {
                 direction: ltr;
-                text-align: center !important;
+                text-align: match-parent;
+                padding: 0 !important;
                 margin: 0 !important;
                 font-family: inherit !important;
 
@@ -57,11 +51,13 @@
                     color: $primaryColor;
 
                     &:hover {
-                        color: $secondaryColor;
+                        color: $thirdColor;
                     }
                 }
             }
+
         }
+
     }
 
     .social {
@@ -69,18 +65,28 @@
         @include flexDiv();
         inset: 0;
 
+        margin-block-start: 3rem;
+
         .socialIcon {
-            border-radius: 0.4rem;
+            margin-inline-end: 1rem;
+            border-radius:50%;
             color: $primaryColor;
             scale: 1;
-            margin-inline-end: 0.5rem;
             transition: scale ease-in-out 0.4s;
 
             &:hover {
                 color: $secondaryColor;
-                scale: 1.2;
+                scale: 1.5;
             }
         }
     }
 
+    .map {
+        margin-block-start: 1rem;
+
+        iframe {
+            border-radius: 1rem;
+            width: 100% !important;
+        }
+    }
 }

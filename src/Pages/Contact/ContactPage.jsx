@@ -13,9 +13,11 @@ import HelmetComponent from "../../utils/Helmet/HelmetComponent";
 import BreadcrumbComponent from "../../components/UI/Breadcrumb/BreadcrumbComponent";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import Logo from "../../components/UI/Logo";
+import { useGetSettingsQuery } from "../../slices/settings-slice";
+
+import { Fade, Slide, Zoom } from "react-awesome-reveal";
 
 import "./ContactPage.scss";
-import { Fade, Slide, Zoom } from "react-awesome-reveal";
 
 const ContactPage = () => {
   const { t, i18n } = useTranslation();
@@ -33,15 +35,16 @@ const ContactPage = () => {
     i18n.changeLanguage(lang ?? defaultLang);
   }, [lang]);
 
-  const { isSettingsDataLoading, data } = useSelector(
-    (state) => state.settings
-  );
+  // RTK Query
+  const { data, isLoading, isError } = useGetSettingsQuery();
 
   return (
     <>
       {/* Page title */}
       <HelmetComponent
-        title={`${data.settings.website_title} | ${t("words:navbar.contact")}`}
+        title={`${data.data.settings.website_title} | ${t(
+          "words:navbar.contact"
+        )}`}
       />
       <BreadcrumbComponent current={t("words:navbar.contact")} />
       <section
@@ -49,30 +52,115 @@ const ContactPage = () => {
         dir={LanguageDirection(lang ?? defaultLang)}
       >
         <Container className="mt-5 contactPageContainer">
-          {isSettingsDataLoading !== "fulfilled" ? (
+          {isLoading || isError ? (
             <CustomSpinner />
           ) : (
             <>
               <Row className="mb-5 g-5">
-                <Col lg={6} md={6} sm={12} xs={12}>
+                 {/* Contact Information */}
+                 <Col lg={6} md={6} sm={12} xs={12}>
                   <div className="contactInfo h-100">
                     {/* Logo */}
-                    <Zoom>
+                    <Slide direction="down" style={{ width: "100%" }}>
                       <Logo
                         alt={"Logo"}
-                        src={data.settings.logo}
+                        src={data.data.settings.logo}
                         className="logo"
                       />
-                    </Zoom>
+                    </Slide>
 
-                    <Zoom className="w-100">
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: fixGoogleMaps(data.settings.map),
-                        }}
-                        className="map w-100"
-                      ></div>
-                    </Zoom>
+                    {/* Address */}
+                    <div className="contactDetails">
+                      <Slide
+                        damping={0.1}
+                        direction="down"
+                        cascade
+                        className="w-100"
+                      >
+                        <label className="contactLabel">
+                          <i className="fa-solid fa-location-pin"></i>
+                          {t("words:address")}:
+                        </label>
+                        <span>{data.data.settings.address}</span>
+                      </Slide>
+                    </div>
+
+                    {/* Mobile */}
+                    <div className="contactDetails">
+                      {data.data.contacts.mobile.map((phone, index) => (
+                        <Slide
+                          damping={0.1}
+                          direction={
+                            LanguageDirection(lang ?? defaultLang) === "rtl"
+                              ? "left"
+                              : "right"
+                          }
+                          cascade
+                          className="w-100"
+                          key={index}
+                        >
+                          <div>
+                            <label className="contactLabel">
+                              <i className={phone.icon}></i>
+                              {t("words:phone")}:
+                            </label>
+                            <label className="contact">
+                              <Link to={`tel:${phone.contact}`}>
+                                {phone.contact}
+                              </Link>
+                            </label>
+                          </div>
+                        </Slide>
+                      ))}
+                    </div>
+
+                    {/* Email */}
+                    <div className="contactDetails">
+                      {data.data.contacts.email.map((mail, index) => (
+                        <Slide
+                          damping={0.1}
+                          direction={
+                            LanguageDirection(lang ?? defaultLang) === "rtl"
+                              ? "right"
+                              : "left"
+                          }
+                          cascade
+                          className="w-100"
+                          key={index}
+                        >
+                          <div>
+                            <label className="contactLabel">
+                              <i className={mail.icon}></i>
+                              {t("words:email")}:
+                            </label>
+                            <label className="contact">
+                              <Link to={`mailto:${mail.contact}`}>
+                                {mail.contact}
+                              </Link>
+                            </label>
+                          </div>
+                        </Slide>
+                      ))}
+                    </div>
+
+                    {/* Social Media */}
+                    <div className="social">
+                      <Fade cascade>
+                        <ul className="list-group list-group-horizontal">
+                          {data.data.contacts.social.map((so, index) => (
+                            <Link
+                              to={`${so.contact}`}
+                              target="_blank"
+                              key={index}
+                            >
+                              <li className="list-group-item socialIcon">
+                                <i className={`${so.icon}`}></i>
+                              </li>
+                            </Link>
+                          ))}
+                        </ul>
+                      </Fade>
+                    </div>
                   </div>
                 </Col>
 
@@ -84,102 +172,26 @@ const ContactPage = () => {
         </Container>
 
         <Container className="contactDetailsContainer">
-          {isSettingsDataLoading !== "fulfilled" ? (
+          {isLoading || isError ? (
             <CustomSpinner />
           ) : (
             <>
-              <Row className="g-5">
-                {/* Mobile */}
-                <Col className="contactDetailsColumn text-center">
-                  {data.contacts.mobile.map((phone, index) => (
-                    <Slide
-                      damping={0.1}
-                      direction="down"
-                      cascade
-                      className="w-100"
-                      key={index}
-                    >
-                      <div>
-                        <p className="icon">
-                          <i className={`${phone.icon}`}></i>
-                        </p>
-
-                        <label className="contact">
-                          <Link to={`tel:${phone.contact}`}>
-                            {phone.contact}
-                          </Link>
-                        </label>
-                      </div>
-                    </Slide>
-                  ))}
-                </Col>
-
-                {/* Address */}
-                <Col className="contactDetailsColumn text-center">
-                  <Slide damping={0.1} direction="up" cascade className="w-100">
-                    <div>
-                      <p className="icon">
-                        <i className="fas fa-map-marker-alt"></i>
-                      </p>
-                      <label className="contact">
-                        <Link to={`#`}>{data.settings.address}</Link>
-                      </label>
-                    </div>
-                  </Slide>
-                </Col>
-
-                {/* Email */}
-                <Col className="contactDetailsColumn text-center">
-                  {data.contacts.email.map((email, index) => (
-                    <Slide
-                      damping={0.1}
-                      direction="down"
-                      cascade
-                      className="w-100"
-                      key={index}
-                    >
-                      <div>
-                        <p className="icon">
-                          <i className={`${email.icon}`}></i>
-                        </p>
-                        <label className="contact">
-                          <Link to={`mailto:${email.contact}`}>
-                            {email.contact}
-                          </Link>
-                        </label>
-                      </div>
-                    </Slide>
-                  ))}
-                </Col>
-
-                {/* Social media */}
-                <Col className="contactDetailsColumn text-center">
-                  <div className="social">
-                    <Slide
-                      damping={0.1}
-                      direction="down"
-                      cascade
-                      className="w-100"
-                    >
-                      <ul className="list-group list-group-horizontal">
-                        {data.contacts.social.map((so, index) => (
-                          <Link
-                            to={`${so.contact}`}
-                            target="_blank"
-                            key={index}
-                          >
-                            <li className="list-group-item socialIcon">
-                              <i className={`${so.icon}`}></i>
-                            </li>
-                          </Link>
-                        ))}
-                      </ul>
-                    </Slide>
-                  </div>
-                </Col>
-              </Row>
+              <Row className="g-5"></Row>
             </>
           )}
+        </Container>
+
+        <Container>
+          <Row>
+            <Zoom className="w-100">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: fixGoogleMaps(data.data.settings.map),
+                }}
+                className="map w-100"
+              ></div>
+            </Zoom>
+          </Row>
         </Container>
       </section>
     </>
