@@ -39,7 +39,7 @@ const AboutCardComponent = ({ item, index, setLightbox }) => {
               className="aboutImage"
               placeholderSrc={PlaceholderImage}
               effect="blur"
-              onClick={() => setLightbox({ isOpen: true })}
+              onClick={() => setLightbox({ isOpen: true, index: index })}
             />
           </Slide>
         </Col>

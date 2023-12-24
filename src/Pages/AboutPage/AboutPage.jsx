@@ -79,7 +79,7 @@ const AboutPage = () => {
             <AboutCardComponent
               item={about}
               setLightbox={setLightbox}
-              index={1}
+              index={0}
             />
           </div>
 
@@ -88,7 +88,7 @@ const AboutPage = () => {
             <AboutCardComponent
               item={our_vision}
               setLightbox={setLightbox}
-              index={2}
+              index={1}
             />
           </div>
 
@@ -97,7 +97,7 @@ const AboutPage = () => {
             <AboutCardComponent
               item={our_mission}
               setLightbox={setLightbox}
-              index={3}
+              index={2}
             />
           </div>
 
@@ -110,9 +110,10 @@ const AboutPage = () => {
           />
 
           <LightboxComponent
+            slides={[about, our_vision, our_mission]}
             lightbox={lightbox}
             setLightbox={setLightbox}
-            slides={[about, our_mission, our_vision]}
+            pathname="<object>.image"
           />
         </section>
       )}

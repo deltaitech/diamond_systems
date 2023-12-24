@@ -80,7 +80,9 @@ const ServicePage = () => {
                     >
                       <div
                         className="serviceImage"
-                        onClick={() => setLightbox({ isOpen: true })}
+                        onClick={() =>
+                          setLightbox({ isOpen: true, index: 0 })
+                        }
                       >
                         <LazyLoadImage
                           alt={service?.title}
@@ -120,6 +122,7 @@ const ServicePage = () => {
                 lightbox={lightbox}
                 setLightbox={setLightbox}
                 slides={[service]}
+                pathname="<object>.image"
               />
             </Row>
           )}

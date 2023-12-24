@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { LanguageDirection, defaultLang } from "../../utils/Helpers/General";
 
 import { Container, Image, Row } from "react-bootstrap";
 import LightboxComponent from "./../UI/LightBox/LightboxComponent";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import PlaceholderImage from "../../assets/favicon.png";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,9 +16,10 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Zoom } from "react-awesome-reveal";
 
 // import "swiper/css";
-import "./SliderComponent.scss";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import "./SliderComponent.scss";
 
 const SliderComponent = ({ data, numbers, space }) => {
   const { lang } = useParams();
@@ -71,23 +73,26 @@ const SliderComponent = ({ data, numbers, space }) => {
             >
               {data.map((image, index) => (
                 <SwiperSlide key={index}>
-                  <Image
-                    key={image.id}
-                    src={image.image}
-                    alt={"Image"}
-                    className="clientImage"
-                    style={{
-                      objectFit: "contain",
-                      objectPosition: "center",
-                    }}
-                    onClick={() => setLightbox({ isOpen: true })}
-                  />
+                  <div className="sliderImage">
+                    <LazyLoadImage
+                      key={image.id}
+                      src={image.image}
+                      alt={"Image"}
+                      className="clientImage"
+                      placeholderSrc={PlaceholderImage}
+                      effect="blur"
+                      onClick={() =>
+                        setLightbox({ isOpen: true, index: index })
+                      }
+                    />
+                  </div>
                 </SwiperSlide>
               ))}
               <LightboxComponent
                 lightbox={lightbox}
                 setLightbox={setLightbox}
                 slides={data}
+                pathname = '<object>.image'
               />
             </Swiper>
           </Row>
