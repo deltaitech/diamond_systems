@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { LanguageDirection, defaultLang } from "../../utils/Helpers/General";
 
-import { Container, Image, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import LightboxComponent from "./../UI/LightBox/LightboxComponent";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import PlaceholderImage from "../../assets/favicon.png";
@@ -21,7 +21,14 @@ import "swiper/css/pagination";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "./SliderComponent.scss";
 
-const SliderComponent = ({ data, numbers, space }) => {
+const SliderComponent = ({
+  data,
+  numbers,
+  space,
+  hasTitle = false,
+  title,
+  hasDescription = false,
+}) => {
   const { lang } = useParams();
   const { t, i18n } = useTranslation();
 
@@ -35,6 +42,24 @@ const SliderComponent = ({ data, numbers, space }) => {
   return (
     <section id="generalSliderSection">
       <Container>
+        {hasTitle && (
+          <Row>
+            <Col>
+              <Zoom cascade delay={100}>
+                <h1 className="sectionTitle">{title}</h1>
+              </Zoom>
+
+              {hasDescription && (
+                <Zoom cascade delay={80}>
+                  <div
+                    className="sectionDescription"
+                    dangerouslySetInnerHTML={{ __html: description }}
+                  ></div>
+                </Zoom>
+              )}
+            </Col>
+          </Row>
+        )}
         <Zoom cascade>
           <Row>
             <Swiper
@@ -92,7 +117,7 @@ const SliderComponent = ({ data, numbers, space }) => {
                 lightbox={lightbox}
                 setLightbox={setLightbox}
                 slides={data}
-                pathname = '<object>.image'
+                pathname="<object>.image"
               />
             </Swiper>
           </Row>

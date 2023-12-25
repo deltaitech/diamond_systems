@@ -110,7 +110,7 @@ const HomePage = () => {
         />
 
         {/* Clients */}
-        <SliderComponent data={clients} numbers={4} space={50} />
+        <SliderComponent data={clients} numbers={4} space={50} hasTitle={true} title={t("words:our_clients")}/>
       </section>
     </>
   );

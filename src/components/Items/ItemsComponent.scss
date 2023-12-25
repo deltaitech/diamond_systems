@@ -9,7 +9,7 @@
         position: relative;
         text-align: center;
         color: $primaryColor;
-        font-size: clamp(1rem, 4vw, 2.25rem);
+        font-size: clamp(1rem, 4vw, 2rem);
         font-weight: 600;
 
         &::before {

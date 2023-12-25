@@ -106,9 +106,11 @@ const AboutPage = () => {
             data={clients}
             numbers={4}
             space={50}
+            hasTitle={true}
+            title={t("words:our_clients")}
             setLightbox={setLightbox}
           />
-
+          
           <LightboxComponent
             slides={[about, our_vision, our_mission]}
             lightbox={lightbox}

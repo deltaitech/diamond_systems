@@ -11,18 +11,25 @@
         text-align: center;
         color: $primaryColor;
         margin-block-end: 3rem;
-        font-size: clamp(1rem, 5vw, 2.5rem);
+        font-size: clamp(1rem, 4vw, 2rem);
         font-weight: 600;
 
         &::before {
             content: '';
             position: absolute;
-            width: 10vw;
+            width: 7vw;
             height: 2px;
             background-color: $secondaryColor;
             inset-block-start: 130%;
-            inset-inline: 44%;
+            inset-inline: 45%;
         }
+    }
+
+    .sectionDescription {
+        color: $secondaryColor;
+        text-align: center;
+        font-size: clamp(0.75rem, 3vw, 1rem);
+
     }
 
     .generalSliderSectionSwiper {
