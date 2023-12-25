@@ -5,7 +5,7 @@ import { Container, Image, Row } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // import required modules
-import { Autoplay, EffectFade, Pagination } from "swiper/modules";
+import { Autoplay, EffectFade, Pagination, Navigation } from "swiper/modules";
 
 import { Link, useParams } from "react-router-dom";
 import {
@@ -20,6 +20,7 @@ import { useTranslation } from "react-i18next";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import "swiper/css/navigation";
 import "./MainSliderComponent.scss";
 import CustomButton from "../UI/CustomButton/CustomButton";
 
@@ -52,15 +53,16 @@ const MainSliderComponent = ({ sliders, socials }) => {
         <Swiper
           direction="horizontal"
           spaceBetween={0}
+          navigation={true}
           centeredSlides={true}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: true,
-          }}
+          // autoplay={{
+          //   delay: 5000,
+          //   disableOnInteraction: true,
+          // }}
           loop={true}
           effect={"fade"}
           pagination={false}
-          modules={[Autoplay, EffectFade, Pagination]}
+          modules={[Autoplay, EffectFade, Pagination, Navigation]}
           className="mySwiper"
         >
           {sliders.map((slider, index) => (

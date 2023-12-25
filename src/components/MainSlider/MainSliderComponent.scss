@@ -65,6 +65,40 @@
             inset-inline-start: 3rem;
         }
 
+        .swiper-button-prev{
+            color:$whiteColor !important;
+            inset-inline-start: 2rem;
+            padding: 1rem !important;
+            width: 40px !important;
+            height: 40px !important;
+            background: rgba(0,0,0,0.5) !important;
+            &::after{
+                font-size: 1rem !important;
+            }
+            @media (max-width: 768px) {
+                inset-inline-start: 0.5rem;
+            }
+        }
+
+        .swiper-button-next{
+            color:$whiteColor !important;
+            inset-inline-end: 3rem;
+            padding: 1rem !important;
+            width: 40px !important;
+            height: 40px !important;
+            background: rgba(0,0,0,0.5) !important;
+            &::after{
+                font-size: 1rem !important;
+            }
+            @media (max-width: 1000px) {
+                inset-inline-end: 1.2rem !important;
+            }
+
+            @media (max-width: 400px) {
+                inset-inline-end: 0.5rem !important;
+            }
+        }
+
         .SliderData {
             position: absolute;
             width: 50% !important;
